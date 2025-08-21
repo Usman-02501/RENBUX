@@ -1,5 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { wp, hp, fontSize, borderWidth, radius, fontFamily } from '../../constant';
+import {
+  wp,
+  hp,
+  fontSize,
+  borderWidth,
+  radius,
+  fontFamily,
+} from '../../constant';
 import { colors } from '../../../Components/constant/index';
 
 export const styles = StyleSheet.create({
@@ -18,39 +25,34 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.large,
     // fontWeight: '700',
     color: colors.white,
-    fontFamily:fontFamily.regular
+    fontFamily: fontFamily.regular,
   },
   subtitle: {
     marginTop: hp(1),
     fontSize: fontSize.mediumSmall,
     color: colors.lightGray,
-    fontFamily:fontFamily.regular
+    fontFamily: fontFamily.regular,
   },
-  inputContainer: {
-    flexDirection: 'row',
+  otpInputView: {
+    marginTop: hp(3.5),
+  },
+  pinCodeContainerStyle: {
+    width: wp(13),
+    height: hp(7),
+    borderRadius: radius.radius2,
     borderWidth: borderWidth.normal,
     borderColor: colors.darkLiver,
-    borderRadius: radius.radius2,
-    height: hp(8),
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: hp(4),
   },
-  countryCode: {
-    paddingHorizontal: wp(4),
-    borderRightWidth: borderWidth.normal,
-    borderRightColor: colors.darkLiver,
+  containerStyle: {
+    gap: wp(1),
   },
-  countryCodeText: {
-    fontSize: fontSize.mediumSmall,
-    color: colors.veryLightGray,
-    fontWeight: '500',
-  },
-  phoneInput: {
-    flex: 1,
-    paddingHorizontal: wp(4),
-    fontSize: fontSize.mediumSmall,
-    color: colors.silver,
-    fontFamily:fontFamily.regular
+  pinCodeTextStyle: {
+    color: colors.white,
+    fontSize: fontSize.statusSize,
+    textAlign: 'center',
   },
   line: {
     marginTop: hp(8),
