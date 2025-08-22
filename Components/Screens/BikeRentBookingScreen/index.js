@@ -12,8 +12,7 @@ import Compass from '../../../Components/assets/svg/Compass.svg';
 import Setting from '../../../Components/assets/svg/Setting.svg';
 import MixIcon from '../../../Components/assets/svg/MixIcon.svg';
 import Line from '../../../Components/assets/svg/Line.svg';
-import Calendar from '../../../Components/assets/svg/Calendar.svg';
-import { BottomSheet } from '@gorhom/bottom-sheet';
+import CalendarImage from '../../../Components/assets/svg/CalendarImage.svg';
 
 const BikeRentBookingScreen = () => {
   const [star, setStar] = useState(false);
@@ -100,7 +99,7 @@ const BikeRentBookingScreen = () => {
         </View>
         <View style={styles.cardbottomView}>
           <TouchableOpacity style={styles.calendarView}>
-            <Calendar height={25} width={25} />
+            <CalendarImage height={25} width={25} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.sendButton}>
             <Text style={styles.sendButtonText}>Book now</Text>
