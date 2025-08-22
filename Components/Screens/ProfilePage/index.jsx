@@ -72,11 +72,11 @@ const ProfilePage = ({ navigation }) => {
               </View>
             </TouchableOpacity>
           </ImageBackground>
-           </View>
-          <View style={styles.nameContainer}>
-            <Text style={styles.nameText}>Guest12387</Text>
-            <Pencil />
-          </View>
+        </View>
+        <View style={styles.nameContainer}>
+          <Text style={styles.nameText}>Guest12387</Text>
+          <Pencil />
+        </View>
       </View>
       <View style={styles.bottomContainer}>
         <LinearGradient
@@ -90,7 +90,11 @@ const ProfilePage = ({ navigation }) => {
             placeholder="Emergency contact number"
             placeholderTextColor={colors.white}
           />
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Rent');
+            }}
+          >
             <Text style={styles.settingsText}>+ Add</Text>
           </TouchableOpacity>
         </LinearGradient>

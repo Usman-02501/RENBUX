@@ -5,6 +5,7 @@ import OnboardingScreen from '../Screens/OnboardingScreen';
 import BrandScreen from '../Screens/BrandScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import ProfilePage from '../Screens/ProfilePage';
+import BikeRentBookingScreen from '../Screens/BikeRentBookingScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -24,6 +25,7 @@ export const MainStack = () => {
       <Stack.Screen name="Brand" component={BrandScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Profile" component={ProfilePage}/>
+      <Stack.Screen name='Rent' component={BikeRentBookingScreen}/>
     </Stack.Navigator>
   );
 };

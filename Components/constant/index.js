@@ -9,6 +9,7 @@ export const hp = p => heightPercentageToDP(p);
 export const colors = {
   RaisinBlack: '#222222',
   white: '#FFFFFF',
+  whiteShade:'#FDFDFD',
   lightGray: '#D3D3D3',
   darkLiver: '#4E4E4E',
   veryLightGray: '#F1F1F1',
@@ -20,19 +21,28 @@ export const colors = {
   Gray: '#818181',
   veryDark:'#2F2F2F',
   darkGary: '#353535',
+  veryDarkGray:'#333232',
   brightGray: '#747474',
   simplyGray: '#898989',
   lightGray: '#BBBBBB',
+  simpleGray:'#D5D5D5',
+  doveGray:'#727272',
+  gray15:'#262626',
   green: '#18B43C',
   silverColor: '#C0C0C0',
+  silverChalice:'#AFAFAF',
   black: '#000000',
+  chineseblack:'#141414',
+  nearBlack:'#2A2A2A',
   swipeButtonColor: '#CB274F30',
   brandlogo: '#5A5A5A33',
   selectbrandlogo: '#DC2F5966',
   darkCharcoal: '#333333',
   blackOlive: '#3B3B3B',
+  smokyBlack:'#0F0F0F',
   charlestonGreen: '#2D2D2D',
   arrowBackColor: '#8A8A8A24',
+  transparent:'#00000000'
 };
 
 export const radius = {
@@ -41,7 +51,8 @@ export const radius = {
   radius3: wp(7),
   radius4: wp(10),
   radius5: wp(90),
-  radius6:wp(18)
+  radius6:wp(18),
+  radius7:wp(6)
 };
 
 export const fontSize = {
