@@ -95,8 +95,8 @@ export const styles = StyleSheet.create({
   bookNowCard: {
     height: hp(25),
     borderRadius: radius.radius2,
-    borderColor:colors.black,
-    borderWidth:borderWidth.normal
+    borderColor: colors.black,
+    borderWidth: borderWidth.normal,
   },
   calendarView: {
     height: hp(5.8),
@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
   cardPriceText: {
     color: colors.whiteShade,
     fontSize: fontSize.medium,
-    fontWeight: '700'
+    fontWeight: '700',
   },
   rentText: {
     color: colors.Gray,
@@ -136,14 +136,129 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal:wp(6),
-    marginTop:hp(5)
+    paddingHorizontal: wp(6),
+    marginTop: hp(5),
   },
   cardbottomView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal:wp(6),
-    marginTop:hp(3)
+    paddingHorizontal: wp(6),
+    marginTop: hp(3),
+  },
+  modalView: {
+    paddingHorizontal: wp(5),
+    backgroundColor:colors.nero
+  },
+  modalContainer: {
+    backgroundColor:colors.nero1,
+    marginHorizontal: wp(5),
+    paddingHorizontal:wp(5),
+    borderRadius: radius.radius2,
+    marginTop: hp(10),
+    paddingTop:hp(3)
+  },
+  line1: {
+    marginTop: hp(2),
+  },
+  title: {
+    fontSize: fontSize.avgSmall,
+    fontWeight: '500',
+    color: colors.antiFlashWhite,
+  },
+  durationContainer: {
+    flexDirection: 'row',
+    gap: wp(2),
+  },
+  durationButton: {
+    paddingHorizontal: wp(3.7),
+    paddingVertical: hp(1),
+    backgroundColor: colors.darkLiver1,
+    borderRadius: radius.radius1,
+  },
+  selectedDurationButton: {
+    backgroundColor: colors.deepPink,
+  },
+  durationText: {
+    color: colors.lightGray,
+    fontSize: fontSize.small,
+    fontWeight: '500',
+  },
+  selectedDurationText: {
+    color: colors.white,
+  },
+  calendar: {
+    // marginTop:hp(2)
+  },
+  arrow: {
+    fontSize: fontSize.mediumLarge,
+    color: colors.white,
+  },
+  periodText: {
+    fontSize: fontSize.small,
+    color: colors.quickSilver,
+    fontWeight: '500',
+    // marginTop: hp(2),
+  },
+  rentalList: {
+    gap: wp(4),
+  },
+  rentalItem: {
+    alignItems: 'center',
+    backgroundColor: colors.veryDark,
+    borderRadius: radius.radius2,
+    height: hp(20),
+    width: wp(27),
+  },
+  itemImageContainer: {
+    marginTop: hp(1.5),
+  },
+  itemName: {
+    color: colors.white,
+    fontSize: fontSize.avgSmall,
+    fontWeight: '400',
+  },
+  itemPrice: {
+    color: colors.white,
+    fontSize: fontSize.medium,
+    fontWeight: '700',
+  },
+  addButton: {
+    position: 'absolute',
+    bottom: hp(0),
+    right: wp(0),
+  },
+  bookButton: {
+    backgroundColor: colors.deepPink,
+    paddingVertical: hp(2.5),
+    borderRadius: radius.radius3,
+    alignItems: 'center',
+    marginBottom: hp(1),
+  },
+  bookButtonText: {
+    color: colors.white,
+    fontSize: fontSize.statusSize,
+    fontWeight: '700',
+  },
+  flatlistView: {
+    marginHorizontal: wp(5),
+    paddingBottom: hp(1),
+    backgroundColor: colors.RaisinBlack,
+  },
+  // calendar: {
+  //   borderRadius: 10,
+  //   elevation: 2,
+  //   shadowColor: "#000",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 2,
+  //   },
+  //   shadowOpacity: 0.1,
+  //   shadowRadius: 3.84,
+  // },
+  arrow: {
+    fontSize: 20,
+    color: "#E91E63",
+    fontWeight: "600",
   },
 });

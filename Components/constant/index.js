@@ -10,9 +10,12 @@ export const colors = {
   RaisinBlack: '#222222',
   white: '#FFFFFF',
   whiteShade:'#FDFDFD',
+  antiFlashWhite:'#F1F1F1',
   lightGray: '#D3D3D3',
   darkLiver: '#4E4E4E',
+  darkLiver1:'#505050',
   veryLightGray: '#F1F1F1',
+  quickSilver:'#A1A1A1',
   silver: '#B1B1B1',
   pink: '#DC2F59',
   deepPink: '#DC2F63',
@@ -42,7 +45,9 @@ export const colors = {
   smokyBlack:'#0F0F0F',
   charlestonGreen: '#2D2D2D',
   arrowBackColor: '#8A8A8A24',
-  transparent:'#00000000'
+  transparent:'#00000000',
+  nero:'#202020',
+  nero1:'#252525'
 };
 
 export const radius = {
