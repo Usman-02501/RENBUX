@@ -34,6 +34,7 @@ export const colors = {
   graniteGray: '#666666',
   spanishGray:'#999999',
   green: '#18B43C',
+  darkGreen:'#3CBA68',
   silverColor: '#C0C0C0',
   silverChalice: '#AFAFAF',
   black: '#000000',
@@ -47,10 +48,12 @@ export const colors = {
   blackOlive: '#3B3B3B',
   smokyBlack: '#0F0F0F',
   charlestonGreen: '#2D2D2D',
+  charlestonGreen1:'#2B2B2B',
   arrowBackColor: '#8A8A8A24',
   transparent: '#00000000',
   nero: '#202020',
   nero1: '#252525',
+  brown:'#BA873C'
 };
 
 export const radius = {
