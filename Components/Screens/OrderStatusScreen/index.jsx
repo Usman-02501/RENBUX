@@ -35,7 +35,7 @@ const DATA = [
     model: 'Royal Enfield Classic 350',
     store: 'Store: QuickRide Hub',
     quantity: 'Helmet x 1 , Jacket x1',
-    line: <Line1 height={2} width={300}/>,
+    line: <Line1 height={2} width={300} />,
     date: '7th June to 8th June',
     status: 'Confirmed',
   },
@@ -114,7 +114,7 @@ const OrderStatusScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
-            navigation.goBack();
+            navigation.navigate('Wallet');
           }}
         >
           <Help />

@@ -32,15 +32,16 @@ export const colors = {
   doveGray: '#727272',
   gray15: '#262626',
   graniteGray: '#666666',
-  spanishGray:'#999999',
+  spanishGray: '#999999',
   green: '#18B43C',
-  darkGreen:'#3CBA68',
+  darkGreen: '#3CBA68',
   silverColor: '#C0C0C0',
   silverChalice: '#AFAFAF',
   black: '#000000',
   chineseblack: '#141414',
   almostBlack: '#272727',
   nearBlack: '#2A2A2A',
+  eerieBlack:'#1E1E1E',
   swipeButtonColor: '#CB274F30',
   brandlogo: '#5A5A5A33',
   selectbrandlogo: '#DC2F5966',
@@ -48,12 +49,12 @@ export const colors = {
   blackOlive: '#3B3B3B',
   smokyBlack: '#0F0F0F',
   charlestonGreen: '#2D2D2D',
-  charlestonGreen1:'#2B2B2B',
+  charlestonGreen1: '#2B2B2B',
   arrowBackColor: '#8A8A8A24',
   transparent: '#00000000',
   nero: '#202020',
   nero1: '#252525',
-  brown:'#BA873C'
+  brown: '#BA873C',
 };
 
 export const radius = {
@@ -66,6 +67,7 @@ export const radius = {
   radius7: wp(6),
   radius8: wp(3),
   radius9: wp(5),
+  radius10: wp(7.5),
 };
 
 export const fontSize = {
@@ -79,7 +81,7 @@ export const fontSize = {
   large: wp(7),
   mediumLarge: wp(8),
   extraLarge: wp(9),
-  avgLarge:wp(10),
+  avgLarge: wp(10),
   doubleXLarge: wp(14),
   superLarge: wp(18),
 };

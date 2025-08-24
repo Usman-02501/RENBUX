@@ -10,6 +10,7 @@ import BikeRentBookingScreen from '../Screens/BikeRentBookingScreen';
 import PaymentScreen from '../Screens/PaymentScreen';
 import OrderBookedScreen from '../Screens/OrderBookedScreen';
 import OrderStatusScreen from '../Screens/OrderStatusScreen';
+import WalletScreen from '../Screens/WalletScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -17,7 +18,7 @@ export const MainStack = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName="Profile"
+      initialRouteName="Order"
       screenOptions={{
         headerShown: false,
         animation: 'none',
@@ -34,6 +35,7 @@ export const MainStack = () => {
       <Stack.Screen name="Payment" component={PaymentScreen}/>
       <Stack.Screen name="Order" component={OrderBookedScreen}/>
       <Stack.Screen name="Status" component={OrderStatusScreen}/>
+      <Stack.Screen name="Wallet"component={WalletScreen}/>
     </Stack.Navigator>
   );
 };
