@@ -32,6 +32,7 @@ export const colors = {
   doveGray: '#727272',
   gray15: '#262626',
   graniteGray: '#666666',
+  spanishGray:'#999999',
   green: '#18B43C',
   silverColor: '#C0C0C0',
   silverChalice: '#AFAFAF',
@@ -75,6 +76,7 @@ export const fontSize = {
   large: wp(7),
   mediumLarge: wp(8),
   extraLarge: wp(9),
+  avgLarge:wp(10),
   doubleXLarge: wp(14),
   superLarge: wp(18),
 };

@@ -8,6 +8,8 @@ import ProfilePage from '../Screens/ProfilePage';
 import SummaryScreen from '../Screens/SummaryScreen';
 import BikeRentBookingScreen from '../Screens/BikeRentBookingScreen';
 import PaymentScreen from '../Screens/PaymentScreen';
+import OrderBookedScreen from '../Screens/OrderBookedScreen';
+import OrderStatusScreen from '../Screens/OrderStatusScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -29,7 +31,9 @@ export const MainStack = () => {
       <Stack.Screen name="Profile" component={ProfilePage}/>
       <Stack.Screen name="Rent" component={BikeRentBookingScreen}/>
       <Stack.Screen name="Summary" component={SummaryScreen}/>
-      <Stack.Screen name='Payment' component={PaymentScreen}/>
+      <Stack.Screen name="Payment" component={PaymentScreen}/>
+      <Stack.Screen name="Order" component={OrderBookedScreen}/>
+      <Stack.Screen name="Status" component={OrderStatusScreen}/>
     </Stack.Navigator>
   );
 };
