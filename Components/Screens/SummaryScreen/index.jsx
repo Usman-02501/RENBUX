@@ -9,7 +9,7 @@ import Wallet from '../../../Components/assets/svg/Wallet.svg';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../constant';
 
-const SummaryScreen = () => {
+const SummaryScreen = ({ navigation }) => {
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
@@ -84,7 +84,12 @@ const SummaryScreen = () => {
           </View>
           <Text style={styles.totalAmount}>$ 687.00</Text>
         </View>
-        <TouchableOpacity style={styles.payButton}>
+        <TouchableOpacity
+          style={styles.payButton}
+          onPress={() => {
+            navigation.navigate('Payment');
+          }}
+        >
           <Text style={styles.payButtonText}>Pay</Text>
         </TouchableOpacity>
       </View>
