@@ -32,6 +32,7 @@ export const colors = {
   simpleGray: '#D5D5D5',
   doveGray: '#727272',
   gray15: '#262626',
+  gray52:'#858585',
   deepGray:'#373737',
   graniteGray: '#666666',
   spanishGray: '#999999',

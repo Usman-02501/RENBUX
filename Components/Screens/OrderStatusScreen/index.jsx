@@ -41,7 +41,16 @@ const DATA = [
   },
 ];
 
-const Item = ({ bike, model, store, quantity, line, date, status }) => (
+const Item = ({
+  bike,
+  model,
+  store,
+  quantity,
+  line,
+  date,
+  status,
+  txtstyle,
+}) => (
   <View style={styles.flatlistItemContainer}>
     <View style={styles.toplistView}>
       <View style={styles.bikeView}>{bike}</View>
@@ -58,6 +67,7 @@ const Item = ({ bike, model, store, quantity, line, date, status }) => (
         style={[
           styles.statusText,
           { color: status === 'Pending' ? colors.brown : colors.darkGreen },
+          txtstyle,
         ]}
       >
         {status}
@@ -68,6 +78,7 @@ const Item = ({ bike, model, store, quantity, line, date, status }) => (
 
 const OrderStatusScreen = ({ navigation }) => {
   const [selectedTab, setSelectedTab] = useState(0);
+  const [select, setselect] = useState('upcoming');
 
   return (
     <LinearGradient
@@ -94,6 +105,7 @@ const OrderStatusScreen = ({ navigation }) => {
             ]}
             onPress={() => {
               setSelectedTab(0);
+              setselect('upcoming');
             }}
           >
             <Text style={styles.upcomingText}>Upcoming</Text>
@@ -107,6 +119,7 @@ const OrderStatusScreen = ({ navigation }) => {
             ]}
             onPress={() => {
               setSelectedTab(1);
+              setselect('finsed');
             }}
           >
             <Text style={styles.upcomingText}>Finished</Text>
@@ -123,7 +136,7 @@ const OrderStatusScreen = ({ navigation }) => {
       </View>
 
       {selectedTab == 0 ? (
-        <View style={{ marginTop: 30 }}>
+        <View style={styles.listView}>
           <FlatList
             contentContainerStyle={styles.contentContainer}
             data={DATA}
@@ -142,8 +155,24 @@ const OrderStatusScreen = ({ navigation }) => {
           />
         </View>
       ) : (
-        <View style={{ marginTop: 30 }}>
-          <Text style={{ color: 'white' }}>Finished</Text>
+        <View style={styles.listView}>
+          <FlatList
+            contentContainerStyle={styles.contentContainer}
+            data={DATA}
+            renderItem={({ item }) => (
+              <Item
+                bike={item.bike}
+                model={item.model}
+                store={item.store}
+                quantity={item.quantity}
+                line={item.line}
+                date={item.date}
+                status={select == 'upcoming' ? item.status : 'Finished'}
+                txtstyle={{ color: select == 'finsed' ? colors.gray52 : null }}
+              />
+            )}
+            keyExtractor={item => item.id}
+          />
         </View>
       )}
     </LinearGradient>

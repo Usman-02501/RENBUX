@@ -44,6 +44,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(3.5),
     borderRadius: radius.radius8,
   },
+  listView: {
+    marginTop: hp(2.5),
+  },
   contentContainer: {
     gap: hp(2.5),
   },
@@ -84,7 +87,7 @@ export const styles = StyleSheet.create({
     marginTop: hp(1.3),
   },
   lineView: {
-    marginTop: hp(1.5)
+    marginTop: hp(1.5),
   },
   dateText: {
     fontWeight: '500',

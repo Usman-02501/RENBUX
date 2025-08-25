@@ -7,14 +7,19 @@ import ArrowDown from '../../../Components/assets/svg/ArrowDown.svg';
 import ArrowUp from '../../../Components/assets/svg/ArrowUp.svg';
 import LinearGradient from 'react-native-linear-gradient';
 
-const HelpScreen = () => {
+const HelpScreen = ({ navigation }) => {
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
       style={styles.container}
     >
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <BackArrow />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Help & Support</Text>
@@ -52,7 +57,9 @@ const HelpScreen = () => {
       </View>
       <View style={styles.callContainer}>
         <Text style={styles.needHelpText}>Need help? Call:</Text>
-        <Text style={styles.numberText}> +1 555-123-4567</Text>
+        <TouchableOpacity>
+          <Text style={styles.numberText}> +1 555-123-4567</Text>
+        </TouchableOpacity>
       </View>
     </LinearGradient>
   );
