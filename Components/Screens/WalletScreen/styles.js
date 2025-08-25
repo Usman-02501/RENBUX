@@ -28,13 +28,13 @@ export const styles = StyleSheet.create({
   },
   renbuxAccountView: {
     alignItems: 'center',
-    paddingTop: hp(5),
+    paddingTop: hp(4.2),
   },
   renbuxAccountText: {
     color: colors.white,
     fontWeight: '700',
     fontSize: fontSize.statusSize,
-    marginTop: hp(1),
+    marginTop: hp(0.5),
   },
   inputContainer: {
     marginTop: hp(7),
@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.softPink,
     borderRadius: radius.radius1,
     marginHorizontal: wp(5),
-    marginBottom: hp(4),
+    marginBottom: hp(3.5),
   },
   titleInput: {
     color: colors.white,
@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.nero,
     borderTopRightRadius: radius.radius10,
-    borderTopLeftRadius: radius.radius10,
+    borderTopLeftRadius: radius.radius10
   },
   payView: {
     backgroundColor: colors.nero1,
@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
     paddingTop: hp(2),
     marginTop: hp(2),
     borderRadius: radius.radius10,
-    flex: 1,
+    flex:1
   },
   payUsingText: {
     fontWeight: '700',
@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.statusSize,
   },
   line: {
-    paddingTop: hp(5),
+    paddingTop: hp(4),
   },
   cardsText: {
     color: colors.quickSilver,
@@ -102,15 +102,15 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: colors.softPink,
+    backgroundColor: colors.veryDarkPink,
     paddingHorizontal: wp(2),
-    paddingVertical: wp(1),
+    paddingVertical: wp(1.5),
     borderRadius: radius.radius1,
     marginTop: hp(1),
   },
   cardTextView: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   textView: {
     marginLeft: wp(2),
@@ -131,6 +131,7 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
   },
   buttonView:{
-    paddingHorizontal:wp(3)
+    paddingHorizontal:wp(3),
+    paddingTop:hp(1)
   }
 });

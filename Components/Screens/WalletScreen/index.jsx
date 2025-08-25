@@ -58,10 +58,15 @@ const WalletScreen = ({ navigation }) => {
           <Text style={styles.payUsingText}>Pay using</Text>
           <Line1 style={styles.line} />
           <Text style={styles.cardsText}>Cards</Text>
-          <View style={styles.cardView}>
+          <TouchableOpacity
+            style={styles.cardView}
+            onPress={() => {
+              navigation.navigate('WalletSuccess');
+            }}
+          >
             <View style={styles.cardTextView}>
               <View>
-                <CreditCard height={55} width={55} />
+                <CreditCard height={52} width={52} />
               </View>
               <View style={styles.textView}>
                 <Text style={styles.hdfBankText}>HDFC Bank credit card</Text>
@@ -69,13 +74,13 @@ const WalletScreen = ({ navigation }) => {
               </View>
             </View>
             <Check style={styles.checkImage} />
-          </View>
+          </TouchableOpacity>
           <View
             style={[styles.cardView, { backgroundColor: colors.eerieBlack }]}
           >
             <View style={styles.cardTextView}>
               <View>
-                <CreditCard1 height={55} width={55} />
+                <CreditCard1 height={52} width={52} />
               </View>
               <View style={styles.textView}>
                 <Text style={styles.hdfBankText}>HDFC Bank credit card</Text>
@@ -92,7 +97,7 @@ const WalletScreen = ({ navigation }) => {
           >
             <View style={styles.cardTextView}>
               <View>
-                <DollarCircle height={55} width={55} />
+                <DollarCircle height={52} width={52} />
               </View>
               <View style={styles.textView}>
                 <Text style={styles.hdfBankText}>HDFC Bank LTD upi</Text>
@@ -102,15 +107,10 @@ const WalletScreen = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.buttonView}>
-         <TouchableOpacity
-              style={styles.payButton}
-              onPress={() => {
-                navigation.navigate('Payment');
-              }}
-            >
-              <Text style={styles.payButtonText}>Pay $2000</Text>
-            </TouchableOpacity>
-            </View>
+          <TouchableOpacity style={styles.payButton}>
+            <Text style={styles.payButtonText}>Pay $2000</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

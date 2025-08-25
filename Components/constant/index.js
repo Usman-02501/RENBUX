@@ -17,6 +17,7 @@ export const colors = {
   veryLightGray: '#F1F1F1',
   quickSilver: '#A1A1A1',
   silver: '#B1B1B1',
+  veryDarkPink:'rgba(220, 47, 99, 0.25)',
   pink: '#DC2F59',
   deepPink: '#DC2F63',
   softPink: '#F05584',
@@ -31,6 +32,7 @@ export const colors = {
   simpleGray: '#D5D5D5',
   doveGray: '#727272',
   gray15: '#262626',
+  deepGray:'#373737',
   graniteGray: '#666666',
   spanishGray: '#999999',
   green: '#18B43C',
@@ -55,6 +57,8 @@ export const colors = {
   nero: '#202020',
   nero1: '#252525',
   brown: '#BA873C',
+  titleText:'rgba(255, 255, 255, 1)',
+  background:'rgba(255, 255, 255, 0.29)'
 };
 
 export const radius = {

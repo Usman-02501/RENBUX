@@ -11,6 +11,7 @@ import PaymentScreen from '../Screens/PaymentScreen';
 import OrderBookedScreen from '../Screens/OrderBookedScreen';
 import OrderStatusScreen from '../Screens/OrderStatusScreen';
 import WalletScreen from '../Screens/WalletScreen';
+import WalletSuccessScreen from '../Screens/WalletSuccessScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -36,6 +37,7 @@ export const MainStack = () => {
       <Stack.Screen name="Order" component={OrderBookedScreen}/>
       <Stack.Screen name="Status" component={OrderStatusScreen}/>
       <Stack.Screen name="Wallet"component={WalletScreen}/>
+      <Stack.Screen name="WalletSuccess" component={WalletSuccessScreen}/>
     </Stack.Navigator>
   );
 };
