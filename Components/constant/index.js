@@ -58,7 +58,8 @@ export const colors = {
   nero1: '#252525',
   brown: '#BA873C',
   titleText:'rgba(255, 255, 255, 1)',
-  background:'rgba(255, 255, 255, 0.29)'
+  background:'rgba(255, 255, 255, 0.29)',
+  blue:'#2A80D7'
 };
 
 export const radius = {

@@ -78,7 +78,8 @@ const OrderStatusScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
-            navigation.goBack();
+            // navigation.goBack();
+            navigation.navigate('Wallet');
           }}
         >
           <BackArrow />
@@ -114,7 +115,7 @@ const OrderStatusScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
-            navigation.navigate('Wallet');
+            navigation.navigate('Help');
           }}
         >
           <Help />

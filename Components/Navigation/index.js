@@ -12,6 +12,7 @@ import OrderBookedScreen from '../Screens/OrderBookedScreen';
 import OrderStatusScreen from '../Screens/OrderStatusScreen';
 import WalletScreen from '../Screens/WalletScreen';
 import WalletSuccessScreen from '../Screens/WalletSuccessScreen';
+import HelpScreen from '../Screens/HelpScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -30,14 +31,15 @@ export const MainStack = () => {
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="Brand" component={BrandScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfilePage}/>
-      <Stack.Screen name="Rent" component={BikeRentBookingScreen}/>
-      <Stack.Screen name="Summary" component={SummaryScreen}/>
-      <Stack.Screen name="Payment" component={PaymentScreen}/>
-      <Stack.Screen name="Order" component={OrderBookedScreen}/>
-      <Stack.Screen name="Status" component={OrderStatusScreen}/>
-      <Stack.Screen name="Wallet"component={WalletScreen}/>
-      <Stack.Screen name="WalletSuccess" component={WalletSuccessScreen}/>
+      <Stack.Screen name="Profile" component={ProfilePage} />
+      <Stack.Screen name="Rent" component={BikeRentBookingScreen} />
+      <Stack.Screen name="Summary" component={SummaryScreen} />
+      <Stack.Screen name="Payment" component={PaymentScreen} />
+      <Stack.Screen name="Order" component={OrderBookedScreen} />
+      <Stack.Screen name="Status" component={OrderStatusScreen} />
+      <Stack.Screen name="Wallet" component={WalletScreen} />
+      <Stack.Screen name="WalletSuccess" component={WalletSuccessScreen} />
+      <Stack.Screen name="Help" component={HelpScreen} />
     </Stack.Navigator>
   );
 };
