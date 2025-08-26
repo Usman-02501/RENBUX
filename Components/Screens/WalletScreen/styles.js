@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.nero,
     borderTopRightRadius: radius.radius10,
-    borderTopLeftRadius: radius.radius10
+    borderTopLeftRadius: radius.radius10,
   },
   payView: {
     backgroundColor: colors.nero1,
@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
     paddingTop: hp(2),
     marginTop: hp(2),
     borderRadius: radius.radius10,
-    flex:1
+    flex: 1,
   },
   payUsingText: {
     fontWeight: '700',
@@ -110,7 +110,7 @@ export const styles = StyleSheet.create({
   },
   cardTextView: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   textView: {
     marginLeft: wp(2),
@@ -118,20 +118,20 @@ export const styles = StyleSheet.create({
   checkImage: {
     marginRight: wp(3),
   },
-   payButton: {
+  payButton: {
     backgroundColor: colors.deepPink,
     borderRadius: radius.radius9,
     paddingVertical: hp(1.5),
     alignItems: 'center',
-    marginBottom:hp(1)
+    marginBottom: hp(1),
   },
   payButtonText: {
     color: colors.white,
     fontSize: fontSize.medium,
     fontWeight: '700',
   },
-  buttonView:{
-    paddingHorizontal:wp(3),
-    paddingTop:hp(1)
-  }
+  buttonView: {
+    paddingHorizontal: wp(3),
+    paddingTop: hp(1),
+  },
 });

@@ -43,7 +43,12 @@ const WalletSuccessScreen = ({ navigation }) => {
       </View>
       <View style={styles.allButtonsView}>
         <View>
-          <TouchableOpacity style={styles.backButton}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => {
+              navigation.navigate('Book');
+            }}
+          >
             <Plus1 height={18} width={18} />
           </TouchableOpacity>
           <Text style={styles.addText}>Add</Text>
@@ -73,76 +78,78 @@ const WalletSuccessScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.bottomView}>
-        <View style={styles.payView}>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              //   Alert.alert('Modal has been closed.');
-              setModalVisible(!modalVisible);
-            }}
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            //   Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <TouchableOpacity
+            style={styles.centeredView}
+            onPress={() => setModalVisible(false)}
+            activeOpacity={0.9}
           >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Wallet height={50} width={50} />
-                <Text style={styles.shareText}>
-                  Share your friends with split{'\n'} ride rexpenses
-                </Text>
-                <TouchableOpacity style={styles.inviteFriendButton}>
-                  <Share height={16} width={16} />
-                  <Text style={styles.inviteFriendText}>Invite friends</Text>
-                </TouchableOpacity>
+            <View style={styles.modalView}>
+              <Wallet height={50} width={50} />
+              <Text style={styles.shareText}>
+                Share your friends with split{'\n'} ride rexpenses
+              </Text>
+              <TouchableOpacity style={styles.inviteFriendButton}>
+                <Share height={16} width={16} />
+                <Text style={styles.inviteFriendText}>Invite friends</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.transactionView}>
+              <View style={styles.transactionTextView}>
+                <Text style={styles.transactionText}>Transaction</Text>
+                <Text style={styles.seeAllText}>See all</Text>
               </View>
-              <View style={styles.transactionView}>
-                <View style={styles.transactionTextView}>
-                  <Text style={styles.transactionText}>Transaction</Text>
-                  <Text style={styles.seeAllText}>See all</Text>
-                </View>
-                <Line1 style={styles.line} />
-                <View style={styles.walletContainer}>
-                  <View style={styles.imageTextView}>
-                    <View>
-                      <LoadWallet height={50} width={50} />
-                    </View>
-                    <View style={styles.textView}>
-                      <Text style={styles.loadWalletText}>Load wallet</Text>
-                      <Text style={styles.dateText}>24, January I 04:34PM</Text>
-                    </View>
+              <Line1 style={styles.line} />
+              <View style={styles.walletContainer}>
+                <View style={styles.imageTextView}>
+                  <View>
+                    <LoadWallet height={50} width={50} />
                   </View>
-                  <Text style={styles.priceText}>+$2000</Text>
-                </View>
-                <View style={styles.walletContainer}>
-                  <View style={styles.imageTextView}>
-                    <View>
-                      <YamahaBike height={50} width={50} />
-                    </View>
-                    <View style={styles.textView}>
-                      <Text style={styles.loadWalletText}>
-                        Yamaha bike rent booked
-                      </Text>
-                      <Text style={styles.dateText}>24, January I 04:34PM</Text>
-                    </View>
+                  <View style={styles.textView}>
+                    <Text style={styles.loadWalletText}>Load wallet</Text>
+                    <Text style={styles.dateText}>24, January I 04:34PM</Text>
                   </View>
-                  <Text style={styles.priceText}>-$23.5</Text>
                 </View>
-                <Line1 style={styles.line} />
-                <View style={styles.walletContainer}>
-                  <View style={styles.imageTextView}>
-                    <View>
-                      <LoadWallet height={50} width={50} />
-                    </View>
-                    <View style={styles.textView}>
-                      <Text style={styles.loadWalletText}>Load wallet</Text>
-                      <Text style={styles.dateText}>24, January I 04:34PM</Text>
-                    </View>
+                <Text style={styles.priceText}>+$2000</Text>
+              </View>
+              <View style={styles.walletContainer}>
+                <View style={styles.imageTextView}>
+                  <View>
+                    <YamahaBike height={50} width={50} />
                   </View>
-                  <Text style={styles.priceText}>+$200</Text>
+                  <View style={styles.textView}>
+                    <Text style={styles.loadWalletText}>
+                      Yamaha bike rent booked
+                    </Text>
+                    <Text style={styles.dateText}>24, January I 04:34PM</Text>
+                  </View>
                 </View>
+                <Text style={styles.priceText}>-$23.5</Text>
+              </View>
+              <Line1 style={styles.line} />
+              <View style={styles.walletContainer}>
+                <View style={styles.imageTextView}>
+                  <View>
+                    <LoadWallet height={50} width={50} />
+                  </View>
+                  <View style={styles.textView}>
+                    <Text style={styles.loadWalletText}>Load wallet</Text>
+                    <Text style={styles.dateText}>24, January I 04:34PM</Text>
+                  </View>
+                </View>
+                <Text style={styles.priceText}>+$200</Text>
               </View>
             </View>
-          </Modal>
-        </View>
+          </TouchableOpacity>
+        </Modal>
       </View>
     </View>
   );

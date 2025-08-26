@@ -13,6 +13,8 @@ import OrderStatusScreen from '../Screens/OrderStatusScreen';
 import WalletScreen from '../Screens/WalletScreen';
 import WalletSuccessScreen from '../Screens/WalletSuccessScreen';
 import HelpScreen from '../Screens/HelpScreen';
+import BookDetailScreen from '../Screens/BookDetailScreen';
+import CancelBookingScreen from '../Screens/CancelBookingScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -40,6 +42,8 @@ export const MainStack = () => {
       <Stack.Screen name="Wallet" component={WalletScreen} />
       <Stack.Screen name="WalletSuccess" component={WalletSuccessScreen} />
       <Stack.Screen name="Help" component={HelpScreen} />
+      <Stack.Screen name="Book" component={BookDetailScreen} />
+      <Stack.Screen name="Cancel" component={CancelBookingScreen}/>
     </Stack.Navigator>
   );
 };

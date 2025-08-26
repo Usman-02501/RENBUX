@@ -38,6 +38,7 @@ export const colors = {
   spanishGray: '#999999',
   green: '#18B43C',
   darkGreen: '#3CBA68',
+  viewbackground:'rgba(60, 186, 104, 0.11)',
   silverColor: '#C0C0C0',
   silverChalice: '#AFAFAF',
   black: '#000000',

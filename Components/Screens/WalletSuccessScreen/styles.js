@@ -76,15 +76,6 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: radius.radius10,
     borderTopLeftRadius: radius.radius10,
   },
-  payView: {
-    backgroundColor: colors.nero1,
-    marginHorizontal: wp(4),
-    paddingHorizontal: wp(4),
-    paddingTop: hp(2),
-    marginTop: hp(2),
-    borderRadius: radius.radius10,
-    flex: 1,
-  },
   centeredView: {
     flex: 1,
     marginTop: hp(39),
