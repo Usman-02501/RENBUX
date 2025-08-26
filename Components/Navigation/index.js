@@ -15,6 +15,7 @@ import WalletSuccessScreen from '../Screens/WalletSuccessScreen';
 import HelpScreen from '../Screens/HelpScreen';
 import BookDetailScreen from '../Screens/BookDetailScreen';
 import CancelBookingScreen from '../Screens/CancelBookingScreen';
+import ChatBoxScreen from '../Screens/ChatBoxScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -44,6 +45,7 @@ export const MainStack = () => {
       <Stack.Screen name="Help" component={HelpScreen} />
       <Stack.Screen name="Book" component={BookDetailScreen} />
       <Stack.Screen name="Cancel" component={CancelBookingScreen}/>
+      <Stack.Screen name="Chat" component={ChatBoxScreen}/>
     </Stack.Navigator>
   );
 };
