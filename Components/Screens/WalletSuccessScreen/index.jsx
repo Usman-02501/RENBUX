@@ -79,31 +79,7 @@ const WalletSuccessScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.bottomView}>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            //   Alert.alert('Modal has been closed.');
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <TouchableOpacity
-            style={styles.centeredView}
-            onPress={() => setModalVisible(false)}
-            activeOpacity={0.9}
-          >
-            <View style={styles.modalView}>
-              <Wallet height={50} width={50} />
-              <Text style={styles.shareText}>
-                Share your friends with split{'\n'} ride rexpenses
-              </Text>
-              <TouchableOpacity style={styles.inviteFriendButton}>
-                <Share height={16} width={16} />
-                <Text style={styles.inviteFriendText}>Invite friends</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.transactionView}>
+         <View style={styles.transactionView}>
               <View style={styles.transactionTextView}>
                 <Text style={styles.transactionText}>Transaction</Text>
                 <Text style={styles.seeAllText}>See all</Text>
@@ -148,6 +124,30 @@ const WalletSuccessScreen = ({ navigation }) => {
                 </View>
                 <Text style={styles.priceText}>+$200</Text>
               </View>
+            </View>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            //   Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <TouchableOpacity
+            style={styles.centeredView}
+            onPress={() => setModalVisible(false)}
+            activeOpacity={0.9}
+          >
+            <View style={styles.modalView}>
+              <Wallet height={50} width={50} />
+              <Text style={styles.shareText}>
+                Share your friends with split{'\n'} ride rexpenses
+              </Text>
+              <TouchableOpacity style={styles.inviteFriendButton}>
+                <Share height={16} width={16} />
+                <Text style={styles.inviteFriendText}>Invite friends</Text>
+              </TouchableOpacity>
             </View>
           </TouchableOpacity>
         </Modal>

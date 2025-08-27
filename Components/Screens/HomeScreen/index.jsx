@@ -84,7 +84,14 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.priceText}>{price}</Text>
           <Text style={styles.rentText}>{rent}</Text>
         </View>
-        <View style={styles.arrowView}>{arrow}</View>
+        <TouchableOpacity
+          style={styles.arrowView}
+          onPress={() => {
+            navigation.navigate('Rent');
+          }}
+        >
+          {arrow}
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -92,7 +99,13 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.imagesView}>
-        <Person height={40} width={40} />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Profile');
+          }}
+        >
+          <Person height={40} width={40} />
+        </TouchableOpacity>
         <TouchableOpacity style={styles.drawerView}>
           <Drawer height={25} width={25} />
         </TouchableOpacity>
@@ -112,11 +125,7 @@ const HomeScreen = ({ navigation }) => {
           placeholder="Enter profile status"
           placeholderTextColor={colors.Gray}
         />
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Profile');
-          }}
-        >
+        <TouchableOpacity>
           <Text style={styles.settingsText}>Go to setting</Text>
         </TouchableOpacity>
       </LinearGradient>

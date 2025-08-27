@@ -76,9 +76,15 @@ const LoginPage = ({ navigation }) => {
       </View>
       <View style={styles.line}></View>
       <View style={styles.socialContainer}>
-        <Google />
-        <Facebook />
-        <Instagram />
+        <TouchableOpacity>
+          <Google />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Facebook />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Instagram />
+        </TouchableOpacity>
       </View>
     </View>
   );

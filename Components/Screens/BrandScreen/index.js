@@ -107,13 +107,12 @@ const BrandScreen = ({ navigation }) => {
           keyExtractor={item => item.id.toString()}
         />
       </View>
-      <AppButton
-        title="Next"
+      <AppButton title="Next" />
+      <TouchableOpacity
         onPress={() => {
           navigation.navigate('Home');
         }}
-      />
-      <TouchableOpacity>
+      >
         <Text style={styles.skipButtonText}>Skip</Text>
       </TouchableOpacity>
     </View>

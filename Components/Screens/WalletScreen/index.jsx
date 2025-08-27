@@ -59,12 +59,7 @@ const WalletScreen = ({ navigation }) => {
           <Text style={styles.payUsingText}>Pay using</Text>
           <Line1 style={styles.line} />
           <Text style={styles.cardsText}>Cards</Text>
-          <TouchableOpacity
-            style={styles.cardView}
-            onPress={() => {
-              navigation.navigate('WalletSuccess');
-            }}
-          >
+          <TouchableOpacity style={styles.cardView}>
             <View style={styles.cardTextView}>
               <View>
                 <CreditCard height={52} width={52} />
@@ -76,7 +71,7 @@ const WalletScreen = ({ navigation }) => {
             </View>
             <Check style={styles.checkImage} />
           </TouchableOpacity>
-          <View
+          <TouchableOpacity
             style={[styles.cardView, { backgroundColor: colors.eerieBlack }]}
           >
             <View style={styles.cardTextView}>
@@ -88,9 +83,9 @@ const WalletScreen = ({ navigation }) => {
                 <Text style={styles.codeText}>xxxxx xxxx 3564</Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
           <Text style={[styles.cardsText, { paddingTop: hp(1) }]}>UPI</Text>
-          <View
+          <TouchableOpacity
             style={[
               styles.cardView,
               { backgroundColor: colors.eerieBlack, paddingTop: hp(2) },
@@ -105,10 +100,15 @@ const WalletScreen = ({ navigation }) => {
                 <Text style={styles.codeText}>Ac no xxxxx 5674</Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.buttonView}>
-          <TouchableOpacity style={styles.payButton}>
+          <TouchableOpacity
+            style={styles.payButton}
+            onPress={() => {
+              navigation.navigate('WalletSuccess');
+            }}
+          >
             <Text style={styles.payButtonText}>Pay $2000</Text>
           </TouchableOpacity>
         </View>

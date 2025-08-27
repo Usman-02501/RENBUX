@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import Bike from '../../../Components/assets/svg/Bike.svg';
 import Google from '../../../Components/assets/svg/Google.svg';
 import Facebook from '../../../Components/assets/svg/Facebook.svg';
@@ -54,9 +54,15 @@ const OtpScreen = ({ navigation }) => {
       </View>
       <View style={styles.line}></View>
       <View style={styles.socialContainer}>
-        <Google />
-        <Facebook />
-        <Instagram />
+        <TouchableOpacity>
+          <Google />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Facebook />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Instagram />
+        </TouchableOpacity>
       </View>
     </View>
   );
