@@ -171,7 +171,7 @@ const BikeRentBookingScreen = ({navigation}) => {
         <View style={styles.cardbottomView}>
           <TouchableOpacity
             style={styles.calendarView}
-            onPress={() => setModalVisible(true)}
+            // onPress={() => setModalVisible(true)}
           >
             <CalendarImage height={25} width={25} />
           </TouchableOpacity>

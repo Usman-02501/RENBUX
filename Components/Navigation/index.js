@@ -16,6 +16,7 @@ import HelpScreen from '../Screens/HelpScreen';
 import BookDetailScreen from '../Screens/BookDetailScreen';
 import CancelBookingScreen from '../Screens/CancelBookingScreen';
 import ChatBoxScreen from '../Screens/ChatBoxScreen';
+import CallScreen from '../Screens/CallScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MainStack = () => {
@@ -23,7 +24,7 @@ export const MainStack = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName="Order"
+      initialRouteName="Login"
       screenOptions={{
         headerShown: false,
         animation: 'none',
@@ -46,6 +47,7 @@ export const MainStack = () => {
       <Stack.Screen name="Book" component={BookDetailScreen} />
       <Stack.Screen name="Cancel" component={CancelBookingScreen}/>
       <Stack.Screen name="Chat" component={ChatBoxScreen}/>
+      <Stack.Screen name="Call" component={CallScreen}/>
     </Stack.Navigator>
   );
 };
