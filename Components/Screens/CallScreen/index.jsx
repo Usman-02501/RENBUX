@@ -7,12 +7,14 @@ import Person from '../../../Components/assets/svg/Person.svg';
 import Volume from '../../../Components/assets/svg/Volume.svg';
 import Call2 from '../../../Components/assets/svg/Call2.svg';
 import Mic1 from '../../../Components/assets/svg/Mic1.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const CallScreen = () => {
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
       <Text style={styles.callText}>Call with owner</Text>
       <View style={styles.personImageView}>
@@ -28,10 +30,10 @@ const CallScreen = () => {
         <TouchableOpacity style={styles.callButton}>
           <Call2 height={28} width={28} />
         </TouchableOpacity>
-          <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity style={styles.backButton}>
           <Mic1 height={18} width={18} />
         </TouchableOpacity>
-        </View>
+      </View>
     </LinearGradient>
   );
 };

@@ -7,11 +7,13 @@ import SwipeButton from 'rn-swipe-button';
 import Swiper from 'react-native-swiper';
 import { styles } from './styles';
 import { colors } from '../../constant';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const OnboardingScreen = ({ navigation }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const swipeButtonRef = useRef(null);
   const swiperRef = useRef(null);
+  const insets = useSafeAreaInsets();
 
   const slides = [
     {
@@ -41,7 +43,7 @@ const OnboardingScreen = ({ navigation }) => {
       if (swiperRef.current) {
         swiperRef.current.scrollBy(1);
       }
-        navigation.navigate('Brand');
+      navigation.navigate('Brand');
     } else {
       // Last screen - handle completion
       // console.log('Onboarding completed!');
@@ -64,7 +66,7 @@ const OnboardingScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar
         barStyle="light-content"
         backgroundColor={currentScreen.backgroundColor}

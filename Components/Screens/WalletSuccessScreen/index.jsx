@@ -14,13 +14,14 @@ import Line1 from '../../../Components/assets/svg/Line1.svg';
 import LoadWallet from '../../../Components/assets/svg/LoadWallet.svg';
 import YamahaBike from '../../../Components/assets/svg/YamahaBike.svg';
 import { colors } from '../../constant';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const WalletSuccessScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const insets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.deepPink} />
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.topView}>
         <TouchableOpacity
           style={styles.backButton}

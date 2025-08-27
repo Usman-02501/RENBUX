@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: radius.radius4,
     borderBottomRightRadius: radius.radius4,
     paddingHorizontal: wp(3),
+    paddingTop:hp(2.5)
   },
   headerContainer: {
     flexDirection: 'row',

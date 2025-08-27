@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, Modal, FlatList } from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  View,
+  Modal,
+  FlatList,
+  StatusBar,
+} from 'react-native';
 import { styles } from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../constant';
@@ -21,11 +28,13 @@ import Holder from '../../../Components/assets/svg/Holder.svg';
 import Tools from '../../../Components/assets/svg/Tools.svg';
 import Plus from '../../../Components/assets/svg/Plus.svg';
 import Tick from '../../../Components/assets/svg/Tick.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const BikeRentBookingScreen = ({navigation}) => {
+const BikeRentBookingScreen = ({ navigation }) => {
   const [star, setStar] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDuration, setSelectedDuration] = useState('Custom');
+  const insets = useSafeAreaInsets();
   const [selectedDates, setSelectedDates] = useState({
     '2024-01-07': {
       selected: true,
@@ -95,8 +104,9 @@ const BikeRentBookingScreen = ({navigation}) => {
   return (
     <LinearGradient
       colors={[colors.chineseblack, colors.nearBlack]}
-      style={styles.container}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
+      <StatusBar backgroundColor="transparent" barStyle="light-content" />
       <View style={styles.starDrawerView}>
         <TouchableOpacity style={styles.drawerView}>
           <Drawer height={25} width={25} />
@@ -175,7 +185,12 @@ const BikeRentBookingScreen = ({navigation}) => {
           >
             <CalendarImage height={25} width={25} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.sendButton} onPress={()=>{navigation.navigate('Summary')}}>
+          <TouchableOpacity
+            style={styles.sendButton}
+            onPress={() => {
+              navigation.navigate('Summary');
+            }}
+          >
             <Text style={styles.sendButtonText}>Book now</Text>
           </TouchableOpacity>
         </View>

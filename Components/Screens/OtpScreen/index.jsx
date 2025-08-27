@@ -1,24 +1,19 @@
 import React from 'react';
-import { StatusBar, Text, TouchableOpacity, View } from 'react-native';
+import { StatusBar, Text, View } from 'react-native';
 import Bike from '../../../Components/assets/svg/Bike.svg';
 import Google from '../../../Components/assets/svg/Google.svg';
 import Facebook from '../../../Components/assets/svg/Facebook.svg';
 import Instagram from '../../../Components/assets/svg/Instagram.svg';
-import {
-  borderWidth,
-  colors,
-  fontSize,
-  hp,
-  radius,
-  wp,
-} from '../../../Components/constant/index';
+import { colors } from '../../../Components/constant/index';
 import { OtpInput } from 'react-native-otp-entry';
 import { styles } from './styles';
 import AppButton from '../../CustomComp/AppButton';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const OtpScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar
         barStyle="light-content"
         backgroundColor={colors.RaisinBlack}

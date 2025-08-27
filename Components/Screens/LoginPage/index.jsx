@@ -14,15 +14,17 @@ import { CountryPicker } from 'react-native-country-codes-picker';
 import { colors } from '../../../Components/constant/index';
 import AppButton from '../../../Components/CustomComp/AppButton';
 import { styles } from './styles';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const LoginPage = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [show, setShow] = useState(false);
   const [countryCode, setCountryCode] = useState('+91');
   const [isFocused, setIsFocused] = useState(false);
+  const insets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar
         barStyle="light-content"
         backgroundColor={colors.RaisinBlack}

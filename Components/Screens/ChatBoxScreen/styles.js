@@ -123,7 +123,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   inputContainer: {
-    marginHorizontal: wp(4)
+    marginHorizontal: wp(4),
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -131,9 +131,9 @@ export const styles = StyleSheet.create({
     borderRadius: radius.radius5,
     paddingHorizontal: wp(4),
     minHeight: hp(6),
-    marginBottom:hp(1),
-    borderWidth:borderWidth.normal,
-    borderColor:colors.graniteGray
+    marginBottom: hp(1),
+    borderWidth: borderWidth.normal,
+    borderColor: colors.graniteGray,
   },
   textInput: {
     flex: 1,

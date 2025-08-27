@@ -5,12 +5,14 @@ import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../constant';
 import BackArrow from '../../../Components/assets/svg/BackArrow.svg';
 import Cancel from '../../../Components/assets/svg/Cancel.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const CancelBookingScreen = ({ navigation }) => {
+    const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container,{paddingTop:insets.top}]}
     >
       <TouchableOpacity
         style={styles.backButton}

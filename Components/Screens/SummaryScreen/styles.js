@@ -3,8 +3,7 @@ import { colors, fontSize, hp, radius, wp } from '../../constant';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.RaisinBlack,
+    flex: 1
   },
   header: {
     flexDirection: 'row',

@@ -4,12 +4,12 @@ import { wp, hp, radius, colors, fontSize } from '../../constant';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: wp(4),
-    paddingTop: hp(2),
+    paddingHorizontal: wp(4)
   },
   backButton: {
     width: wp(12),
     height: hp(6),
+    marginTop: hp(2),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: radius.radius7,

@@ -11,9 +11,11 @@ import Yamaha from '../../../Components/assets/svg/Yamaha.svg';
 import { styles } from './styles';
 import AppButton from '../../CustomComp/AppButton';
 import { colors } from '../../constant';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const BrandScreen = ({ navigation }) => {
   const [selectedBrands, setSelectedBrands] = useState([]);
+  const insets = useSafeAreaInsets();
 
   const brands = [
     { id: 1, name: 'Honda', logo: <Honda height={25} width={25} /> },
@@ -87,7 +89,7 @@ const BrandScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.header}>
         <Text style={styles.title}>
           Choose your <Text style={styles.boldText}>bike brand</Text> you want

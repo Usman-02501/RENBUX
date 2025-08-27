@@ -6,12 +6,14 @@ import BackArrow from '../../../Components/assets/svg/BackArrow.svg';
 import ArrowDown from '../../../Components/assets/svg/ArrowDown.svg';
 import ArrowUp from '../../../Components/assets/svg/ArrowUp.svg';
 import LinearGradient from 'react-native-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HelpScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
       <View style={styles.header}>
         <TouchableOpacity

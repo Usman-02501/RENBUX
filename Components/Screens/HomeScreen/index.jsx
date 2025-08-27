@@ -17,10 +17,12 @@ import Star from '../../../Components/assets/svg/Star.svg';
 import HeavyBike from '../../../Components/assets/svg/HeavyBike.svg';
 import ArrowLeft from '../../../Components/assets/svg/ArrowLeft.svg';
 import SportsBike from '../../../Components/assets/svg/SportsBike.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation }) => {
   const [profileStatus, setProfileStatus] = useState('Pending profile setup');
   const [selectedId, setSelectedId] = useState('1');
+  const insets = useSafeAreaInsets();
 
   const DATA = [
     {
@@ -88,7 +90,7 @@ const HomeScreen = ({navigation}) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.imagesView}>
         <Person height={40} width={40} />
         <TouchableOpacity style={styles.drawerView}>
@@ -110,7 +112,11 @@ const HomeScreen = ({navigation}) => {
           placeholder="Enter profile status"
           placeholderTextColor={colors.Gray}
         />
-        <TouchableOpacity onPress={()=>{navigation.navigate('Profile')}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Profile');
+          }}
+        >
           <Text style={styles.settingsText}>Go to setting</Text>
         </TouchableOpacity>
       </LinearGradient>

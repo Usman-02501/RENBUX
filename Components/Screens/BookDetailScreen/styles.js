@@ -10,10 +10,13 @@ export const styles = StyleSheet.create({
   },
   topView: {
     height: hp(35),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     paddingHorizontal: wp(4),
     backgroundColor: colors.pink,
+  },
+  headerView: {
+    paddingTop: hp(2),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   backButton: {
     width: wp(12),
@@ -29,8 +32,7 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.medium,
   },
   bottomContainer: {
-    // zIndex: 1,
-    bottom: hp(25),
+    bottom: hp(18),
     marginHorizontal: wp(5),
     borderRadius: radius.radius8,
     backgroundColor: colors.veryDark,
@@ -95,7 +97,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(5),
     paddingVertical: hp(2),
     borderRadius: radius.radius2,
-    bottom: hp(23),
+    bottom: hp(16),
     marginHorizontal: wp(5),
     borderRadius: radius.radius8,
   },
@@ -124,9 +126,9 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.veryDark,
     paddingHorizontal: wp(5),
     paddingTop: hp(1),
-    paddingBottom:hp(2.5),
+    paddingBottom: hp(2.5),
     borderRadius: radius.radius2,
-    bottom: hp(21),
+    bottom: hp(14),
     marginHorizontal: wp(5),
     borderRadius: radius.radius8,
   },
@@ -162,22 +164,22 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   line: {
-    paddingTop:hp(2),
+    paddingTop: hp(2),
   },
-  chatView:{
-    backgroundColor:colors.charlestonGreen1,
-    paddingHorizontal:wp(4),
-    paddingVertical:hp(1.5),
-    borderRadius:radius.radius2,
-    marginTop:hp(1)
+  chatView: {
+    backgroundColor: colors.charlestonGreen1,
+    paddingHorizontal: wp(4),
+    paddingVertical: hp(1.5),
+    borderRadius: radius.radius2,
+    marginTop: hp(1),
   },
-   bookingContainer: {
+  bookingContainer: {
     backgroundColor: colors.veryDark,
     paddingHorizontal: wp(5),
     paddingTop: hp(1),
-    paddingBottom:hp(2.5),
+    paddingBottom: hp(2.5),
     borderRadius: radius.radius2,
-    bottom: hp(19),
+    bottom: hp(12),
     marginHorizontal: wp(5),
     borderRadius: radius.radius8,
   },
@@ -187,7 +189,7 @@ export const styles = StyleSheet.create({
     paddingVertical: hp(1.5),
     marginHorizontal: wp(5),
     alignItems: 'center',
-    marginBottom:hp(3)
+    marginBottom: hp(3),
   },
   downloadBottonText: {
     color: colors.white,

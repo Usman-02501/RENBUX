@@ -7,6 +7,7 @@ import Line1 from '../../../Components/assets/svg/Line1.svg';
 import LinearGradient from 'react-native-linear-gradient';
 import { styles } from './styles';
 import { colors } from '../../constant';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const DATA = [
   {
@@ -79,11 +80,12 @@ const Item = ({
 const OrderStatusScreen = ({ navigation }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [select, setselect] = useState('upcoming');
+  const insets = useSafeAreaInsets();
 
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container,{paddingTop:insets.top}]}
     >
       <View style={styles.topView}>
         <TouchableOpacity

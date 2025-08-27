@@ -10,12 +10,14 @@ import Helmet from '../../../Components/assets/svg/Helmet.svg';
 import MenHelmet from '../../../Components/assets/svg/MenHelmet.svg';
 import Jacket from '../../../Components/assets/svg/Jacket.svg';
 import MaskedView from '@react-native-masked-view/masked-view';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const OrderBookedScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
       <View style={styles.shareButtonView}>
         <TouchableOpacity

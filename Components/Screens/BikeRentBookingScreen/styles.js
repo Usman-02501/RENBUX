@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: wp(5),
-    paddingTop: hp(3),
   },
   drawerView: {
     height: hp(5.8),
@@ -28,6 +27,7 @@ export const styles = StyleSheet.create({
   starDrawerView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingTop: hp(3),
   },
   ironBikeView: {
     height: hp(35),

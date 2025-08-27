@@ -16,13 +16,14 @@ import CreditCard1 from '../../../Components/assets/svg/CreditCard1.svg';
 import Check from '../../../Components/assets/svg/Check.svg';
 import DollarCircle from '../../../Components/assets/svg/DollarCircle.svg';
 import { colors, hp } from '../../constant';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const WalletScreen = ({ navigation }) => {
   const [number, setNumber] = useState('');
+  const insets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.deepPink} />
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.topView}>
         <TouchableOpacity
           style={styles.backButton}

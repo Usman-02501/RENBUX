@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  StatusBar,
+} from 'react-native';
 import { styles } from './styles';
 import BackArrow from '../../../Components/assets/svg/BackArrow.svg';
 import Help from '../../../Components/assets/svg/Help.svg';
@@ -17,15 +24,18 @@ import Map from '../../../Components/assets/svg/Map.svg';
 import TextImage from '../../../Components/assets/svg/TextImage.svg';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors, hp } from '../../constant';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const BookDetailScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
       style={styles.container}
     >
       <ScrollView style={styles.scrollViewContainer}>
-        <View style={styles.topView}>
+        <View style={[styles.topView,{paddingTop:insets.top}]}>
+          <View style={styles.headerView}>
           <TouchableOpacity
             style={styles.backButton}
             onPress={() => {
@@ -38,6 +48,7 @@ const BookDetailScreen = ({ navigation }) => {
           <TouchableOpacity style={styles.backButton}>
             <Help height={18} width={18} />
           </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.bottomContainer}>
           <View style={styles.bikeView}>

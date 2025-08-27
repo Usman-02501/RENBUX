@@ -8,17 +8,16 @@ import Jacket from '../../../Components/assets/svg/Jacket.svg';
 import Wallet from '../../../Components/assets/svg/Wallet.svg';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../constant';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const SummaryScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor={[styles.nearBlack, styles.chineseblack]}
-      />
+      <StatusBar backgroundColor="transparent" barStyle="light-content" />
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}

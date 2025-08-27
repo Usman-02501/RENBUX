@@ -17,8 +17,10 @@ import More from '../../../Components/assets/svg/More.svg';
 import DoubleTick from '../../../Components/assets/svg/DoubleTick.svg';
 import Mic from '../../../Components/assets/svg/Mic.svg';
 import Play from '../../../Components/assets/svg/Play.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const ChatBoxScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   const messages = [
     {
       id: 1,
@@ -94,7 +96,7 @@ const ChatBoxScreen = ({ navigation }) => {
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
       <StatusBar barStyle="light-content" backgroundColor={colors.nearBlack} />
       <View style={styles.header}>

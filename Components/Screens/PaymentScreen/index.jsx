@@ -5,12 +5,14 @@ import { colors } from '../../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import Share from '../../../Components/assets/svg/Share.svg';
 import Success from '../../../Components/assets/svg/Success.svg';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const PaymentScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={styles.container}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
       <TouchableOpacity
         style={styles.shareButton}

@@ -5,11 +5,11 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.RaisinBlack,
-    paddingHorizontal: wp(4),
-    paddingTop: hp(3),
+    paddingHorizontal: wp(4)
   },
   imagesView: {
     flexDirection: 'row',
+    paddingTop: hp(3),
     justifyContent: 'space-between',
   },
   drawerView: {

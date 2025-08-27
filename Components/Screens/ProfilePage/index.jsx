@@ -14,12 +14,14 @@ import { styles } from './styles';
 import { colors } from '../../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import ImagePicker from 'react-native-image-crop-picker';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const ProfilePage = ({ navigation }) => {
   const [number, setNumber] = useState('');
   const [group, setGroup] = useState('');
   const [kyc, setKyc] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
+   const insets = useSafeAreaInsets();
 
   const openGallery = () => {
     ImagePicker.openPicker({
@@ -39,7 +41,7 @@ const ProfilePage = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,{paddingTop:insets.top}]}>
       <StatusBar barStyle="light-content" backgroundColor={colors.veryDark} />
       <View style={styles.profileContainer}>
         <View style={styles.headerContainer}>

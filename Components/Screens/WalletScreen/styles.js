@@ -4,8 +4,7 @@ import { colors, wp, hp, radius, fontSize } from '../../constant';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.deepPink,
-    paddingTop: hp(1),
+    backgroundColor: colors.deepPink
   },
   backButton: {
     width: wp(12),
@@ -25,6 +24,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: wp(4),
+    paddingTop: hp(1),
   },
   renbuxAccountView: {
     alignItems: 'center',
