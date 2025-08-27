@@ -136,7 +136,12 @@ const ChatBoxScreen = ({ navigation }) => {
             placeholder="I truly appreciate your ti"
             placeholderTextColor={colors.quickSilver}
           />
-          <TouchableOpacity style={styles.micButton}>
+          <TouchableOpacity
+            style={styles.micButton}
+            onPress={() => {
+              navigation.navigate('Call');
+            }}
+          >
             <Mic />
           </TouchableOpacity>
           <TouchableOpacity style={styles.sendButton}>
