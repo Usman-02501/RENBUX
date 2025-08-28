@@ -1,5 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { wp, hp, fontSize, borderWidth, radius, fontFamily } from '../../constant';
+import {
+  wp,
+  hp,
+  fontSize,
+  borderWidth,
+  radius,
+  fontFamily,
+} from '../../constant';
 import { colors } from '../../../Components/constant/index';
 
 export const styles = StyleSheet.create({
@@ -18,13 +25,13 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.large,
     // fontWeight: '700',
     color: colors.white,
-    fontFamily:fontFamily.regular
+    fontFamily: fontFamily.regular,
   },
   subtitle: {
     marginTop: hp(1),
     fontSize: fontSize.mediumSmall,
     color: colors.lightGray,
-    fontFamily:fontFamily.regular
+    fontFamily: fontFamily.regular,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -48,9 +55,14 @@ export const styles = StyleSheet.create({
   phoneInput: {
     flex: 1,
     paddingHorizontal: wp(4),
-    fontSize: fontSize.mediumSmall,
+    fontSize: fontSize.small,
     color: colors.silver,
-    fontFamily:fontFamily.regular
+    fontFamily: fontFamily.regular,
+  },
+  errorMessage: {
+    color: colors.red,
+    fontSize: fontSize.small,
+    paddingTop: hp(1),
   },
   line: {
     marginTop: hp(8),

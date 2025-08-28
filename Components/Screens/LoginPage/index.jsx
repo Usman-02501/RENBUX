@@ -3,7 +3,6 @@ import {
   StatusBar,
   Text,
   TextInput,
-  ToastAndroid,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -18,6 +17,7 @@ import { styles } from './styles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import Toast from 'react-native-toast-message';
 
 const LoginPage = ({ navigation }) => {
   const [show, setShow] = useState(false);
@@ -33,7 +33,12 @@ const LoginPage = ({ navigation }) => {
   });
 
   const showToast = message => {
-    ToastAndroid.showWithGravity(message, ToastAndroid.SHORT, ToastAndroid.TOP);
+    Toast.show({
+      type: 'error',
+      text1: message,
+      position: 'top',
+      visibilityTime: 2000,
+    });
   };
 
   return (
@@ -72,7 +77,6 @@ const LoginPage = ({ navigation }) => {
           }) => {
             useEffect(() => {
               if (shouldValidate && errors.number && touched.number) {
-                showToast(errors.number);
                 setShouldValidate(false);
               }
             }, [errors, touched, shouldValidate]);
@@ -103,7 +107,7 @@ const LoginPage = ({ navigation }) => {
                   <TextInput
                     style={styles.phoneInput}
                     placeholder="Enter mobile number"
-                    placeholderTextColor="#666666"
+                    placeholderTextColor={colors.silver}
                     value={values.number}
                     onChangeText={text => {
                       handleChange('number')(text);
@@ -117,12 +121,19 @@ const LoginPage = ({ navigation }) => {
                     }}
                   />
                 </View>
+                {errors.number && values.number === '' && (
+                  <Text style={styles.errorMessage}>{errors.number}</Text>
+                )}
                 <AppButton
                   onPress={async () => {
                     setFieldTouched('number', true);
                     const formErrors = await validateForm();
                     if (formErrors.number) {
-                      setShouldValidate(true);
+                      if (values.number === '') {
+                        setShouldValidate(false);
+                      } else {
+                        showToast(formErrors.number);
+                      }
                     } else {
                       handleSubmit();
                     }

@@ -29,6 +29,7 @@
     "react-native-svg": "^15.12.1",
     "react-native-svg-transformer": "^1.5.1",
     "react-native-swiper": "^1.6.0",
+    "react-native-toast-message": "^2.3.3",
     "rn-swipe-button": "^3.0.1",
     "yup": "^1.7.0"
   },
