@@ -24,6 +24,7 @@ const LoginPage = ({ navigation }) => {
   const [countryCode, setCountryCode] = useState('+91');
   const [isFocused, setIsFocused] = useState(false);
   const [shouldValidate, setShouldValidate] = useState(false);
+  const [buttonText, setButtonText] = useState('');
   const insets = useSafeAreaInsets();
 
   let userSchema = Yup.object({
@@ -60,7 +61,7 @@ const LoginPage = ({ navigation }) => {
           onSubmit={({ number }) => {
             const fullPhone = `${countryCode}${number}`;
             console.log('Submitting:', fullPhone);
-            navigation.navigate('otp', { phone: fullPhone });
+            navigation.navigate('otp', { phone: fullPhone, otpSent: true });
           }}
           validationSchema={userSchema}
           validateOnBlur={true}
@@ -135,10 +136,13 @@ const LoginPage = ({ navigation }) => {
                         showToast(formErrors.number);
                       }
                     } else {
-                      handleSubmit();
+                      setButtonText('Sending...');
+                      setTimeout(() => {
+                        handleSubmit();
+                      }, 500);
                     }
                   }}
-                  title="SEND OTP"
+                  title={buttonText ? 'Sending...' : 'SEND OTP'}
                 />
               </View>
             );

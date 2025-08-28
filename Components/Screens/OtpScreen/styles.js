@@ -54,6 +54,11 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.statusSize,
     textAlign: 'center',
   },
+  errorMessage: {
+    color: colors.red,
+    fontSize: fontSize.small,
+    paddingTop: hp(1),
+  },
   line: {
     marginTop: hp(8),
     borderBottomWidth: 1,
