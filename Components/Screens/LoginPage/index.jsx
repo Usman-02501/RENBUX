@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StatusBar,
   Text,
   TextInput,
+  ToastAndroid,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -15,13 +16,25 @@ import { colors } from '../../../Components/constant/index';
 import AppButton from '../../../Components/CustomComp/AppButton';
 import { styles } from './styles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 
 const LoginPage = ({ navigation }) => {
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [show, setShow] = useState(false);
   const [countryCode, setCountryCode] = useState('+91');
   const [isFocused, setIsFocused] = useState(false);
+  const [shouldValidate, setShouldValidate] = useState(false);
   const insets = useSafeAreaInsets();
+
+  let userSchema = Yup.object({
+    number: Yup.string()
+      .required('Please enter your number')
+      .matches(/^\d{10}$/, 'Enter valid number'),
+  });
+
+  const showToast = message => {
+    ToastAndroid.showWithGravity(message, ToastAndroid.SHORT, ToastAndroid.TOP);
+  };
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -37,42 +50,89 @@ const LoginPage = ({ navigation }) => {
         <Text style={styles.subtitle}>
           We will send one time password in this{'\n'}phone number.
         </Text>
-        <View
-          style={[
-            styles.inputContainer,
-            isFocused && { borderColor: colors.green },
-          ]}
-        >
-          <View style={styles.countryCode}>
-            <TouchableOpacity onPress={() => setShow(true)}>
-              <Text style={styles.countryCodeText}>{countryCode}</Text>
-            </TouchableOpacity>
-            <CountryPicker
-              show={show}
-              pickerButtonOnPress={item => {
-                setCountryCode(item.dial_code);
-                setShow(false);
-              }}
-            />
-          </View>
-          <TextInput
-            style={styles.phoneInput}
-            placeholder="Enter mobile number"
-            placeholderTextColor="#666666"
-            value={phoneNumber}
-            onChangeText={setPhoneNumber}
-            keyboardType="phone-pad"
-            maxLength={10}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-          />
-        </View>
-        <AppButton
-          onPress={() => {
-            navigation.navigate('otp');
+        <Formik
+          initialValues={{ number: '' }}
+          onSubmit={({ number }) => {
+            const fullPhone = `${countryCode}${number}`;
+            console.log('Submitting:', fullPhone);
+            navigation.navigate('otp', { phone: fullPhone });
           }}
-          title="SEND OTP"
-        />
+          validationSchema={userSchema}
+          validateOnBlur={true}
+          validateOnChange={false}
+        >
+          {({
+            handleChange,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+            setFieldTouched,
+            validateForm,
+          }) => {
+            useEffect(() => {
+              if (shouldValidate && errors.number && touched.number) {
+                showToast(errors.number);
+                setShouldValidate(false);
+              }
+            }, [errors, touched, shouldValidate]);
+
+            return (
+              <View>
+                <View
+                  style={[
+                    styles.inputContainer,
+                    isFocused && { borderColor: colors.green },
+                    errors.number &&
+                      touched.number && { borderColor: colors.red },
+                  ]}
+                >
+                  <View style={styles.countryCode}>
+                    <TouchableOpacity onPress={() => setShow(true)}>
+                      <Text style={styles.countryCodeText}>{countryCode}</Text>
+                    </TouchableOpacity>
+                    <CountryPicker
+                      show={show}
+                      pickerButtonOnPress={item => {
+                        setCountryCode(item.dial_code);
+                        setShow(false);
+                      }}
+                      onBackdropPress={() => setShow(false)}
+                    />
+                  </View>
+                  <TextInput
+                    style={styles.phoneInput}
+                    placeholder="Enter mobile number"
+                    placeholderTextColor="#666666"
+                    value={values.number}
+                    onChangeText={text => {
+                      handleChange('number')(text);
+                    }}
+                    keyboardType="phone-pad"
+                    maxLength={10}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => {
+                      setIsFocused(false);
+                      setFieldTouched('number', true);
+                    }}
+                  />
+                </View>
+                <AppButton
+                  onPress={async () => {
+                    setFieldTouched('number', true);
+                    const formErrors = await validateForm();
+                    if (formErrors.number) {
+                      setShouldValidate(true);
+                    } else {
+                      handleSubmit();
+                    }
+                  }}
+                  title="SEND OTP"
+                />
+              </View>
+            );
+          }}
+        </Formik>
       </View>
       <View style={styles.line}></View>
       <View style={styles.socialContainer}>
