@@ -35,53 +35,36 @@ const BikeRentBookingScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedDuration, setSelectedDuration] = useState('Custom');
   const insets = useSafeAreaInsets();
-  const [selectedDates, setSelectedDates] = useState({
-    '2024-01-07': {
-      selected: true,
-      selectedColor: '#E91E63',
-      selectedTextColor: '#FFFFFF',
-    },
-    '2024-01-08': {
-      selected: true,
-      selectedColor: '#E91E63',
-      selectedTextColor: '#FFFFFF',
-    },
-  });
-
-  const onDayPress = day => {
-    setSelectedDates({
-      ...selectedDates,
-      [day.dateString]: {
-        selected: true,
-        selectedColor: '#E91E63',
-        selectedTextColor: '#FFFFFF',
-      },
-    });
-  };
-
+  
   const rentalItems = [
     {
       id: '1',
       name: 'Helmet',
       price: '$40',
-      image: <Helmet />,
-      icon: <Plus />,
+      image: <Helmet height={50} width={50} />,
+      icon: <Plus height={25} width={25} />,
     },
     {
       id: '2',
       name: 'Jacket',
       price: '$80',
-      image: <Jacket />,
-      icon: <Tick />,
+      image: <Jacket height={50} width={50} />,
+      icon: <Tick height={25} width={25} />,
     },
     {
       id: '3',
       name: 'Holder',
       price: '$50',
-      image: <Holder />,
-      icon: <Plus />,
+      image: <Holder height={50} width={50} />,
+      icon: <Plus height={25} width={25} />,
     },
-    { id: '4', name: 'Tools', price: '$80', image: <Tools />, icon: <Tick /> },
+    {
+      id: '4',
+      name: 'Tools',
+      price: '$80',
+      image: <Tools height={50} width={50} />,
+      icon: <Tick height={25} width={25} />,
+    },
   ];
 
   const durationButtons = ['1 day', '2 day', '3 day', 'Custom'];
@@ -91,9 +74,7 @@ const BikeRentBookingScreen = ({ navigation }) => {
       <View style={styles.itemImageContainer}>{item.image}</View>
       <Text style={styles.itemName}>{item.name}</Text>
       <Text style={styles.itemPrice}>{item.price}</Text>
-      <TouchableOpacity style={styles.addButton}>
-        <Text>{item.icon}</Text>
-      </TouchableOpacity>
+      <TouchableOpacity style={styles.addButton}>{item.icon}</TouchableOpacity>
     </View>
   );
 
@@ -181,7 +162,7 @@ const BikeRentBookingScreen = ({ navigation }) => {
         <View style={styles.cardbottomView}>
           <TouchableOpacity
             style={styles.calendarView}
-            // onPress={() => setModalVisible(true)}
+            onPress={() => setModalVisible(true)}
           >
             <CalendarImage height={25} width={25} />
           </TouchableOpacity>
@@ -202,11 +183,11 @@ const BikeRentBookingScreen = ({ navigation }) => {
           transparent={true}
           onRequestClose={() => setModalVisible(false)}
         >
+          <View style={styles.topModalView}>
           <View style={styles.modalContainer}>
-            <Text style={styles.title}>Select duration</Text>
-            <Line1 style={styles.line1} />
-
-            <View style={styles.durationContainer}>
+             <Text style={styles.title}>Select duration</Text>
+            <Line1 style={styles.line1} /> 
+             <View style={styles.durationContainer}>
               {durationButtons.map(duration => (
                 <TouchableOpacity
                   key={duration}
@@ -228,55 +209,13 @@ const BikeRentBookingScreen = ({ navigation }) => {
                   </Text>
                 </TouchableOpacity>
               ))}
-            </View>
-            <Calendar
-              current={'2024-01-01'}
-              onDayPress={onDayPress}
-              markedDates={selectedDates}
-              markingType={'period'}
-              theme={{
-                backgroundColor: '#FFFFFF',
-                calendarBackground: '#FFFFFF',
-                textSectionTitleColor: '#B6C1CD',
-                selectedDayBackgroundColor: '#E91E63',
-                selectedDayTextColor: '#FFFFFF',
-                todayTextColor: '#E91E63',
-                dayTextColor: '#2D4150',
-                textDisabledColor: '#D9E1E8',
-                dotColor: '#E91E63',
-                selectedDotColor: '#FFFFFF',
-                arrowColor: '#E91E63',
-                disabledArrowColor: '#D9E1E8',
-                monthTextColor: '#2D4150',
-                indicatorColor: '#E91E63',
-                textDayFontFamily: 'System',
-                textMonthFontFamily: 'System',
-                textDayHeaderFontFamily: 'System',
-                textDayFontWeight: '400',
-                textMonthFontWeight: '600',
-                textDayHeaderFontWeight: '400',
-                textDayFontSize: 16,
-                textMonthFontSize: 18,
-                textDayHeaderFontSize: 14,
-              }}
-              style={styles.calendar}
-              hideExtraDays={true}
-              firstDay={0}
-              showWeekNumbers={false}
-              disableMonthChange={false}
-              hideDayNames={false}
-              hideArrows={false}
-              renderArrow={direction => (
-                <Text style={styles.arrow}>
-                  {direction === 'left' ? '‹' : '›'}
-                </Text>
-              )}
-            />
+            </View> 
+           
 
-            <Line1 style={styles.line1} />
-            <Text style={styles.periodText}>Choose your rental period</Text>
+             <Line1 style={styles.line1} />
+            <Text style={styles.periodText}>Choose your rental period</Text> 
           </View>
-          <View style={styles.flatlistView}>
+           <View style={styles.flatlistView}>
             <FlatList
               data={rentalItems}
               renderItem={renderRentalItem}
@@ -285,10 +224,11 @@ const BikeRentBookingScreen = ({ navigation }) => {
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.rentalList}
             />
-          </View>
-          <TouchableOpacity style={styles.bookButton}>
+          </View> 
+           <TouchableOpacity style={styles.bookButton}>
             <Text style={styles.bookButtonText}>Continue</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> 
+          </View>
         </Modal>
       </View>
     </LinearGradient>

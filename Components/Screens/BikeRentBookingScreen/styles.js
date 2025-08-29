@@ -148,18 +148,23 @@ export const styles = StyleSheet.create({
   },
   modalView: {
     paddingHorizontal: wp(5),
-    backgroundColor:colors.nero
+    backgroundColor: colors.nero,
+  },
+  topModalView: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: colors.nero,
   },
   modalContainer: {
-    backgroundColor:colors.nero1,
+    backgroundColor: colors.nero1,
     marginHorizontal: wp(5),
-    paddingHorizontal:wp(5),
+    paddingHorizontal: wp(5),
     borderRadius: radius.radius2,
-    marginTop: hp(10),
-    paddingTop:hp(3)
+    paddingTop: hp(9),
   },
   line1: {
-    marginTop: hp(2),
+    marginTop: hp(1),
+    marginBottom: hp(1),
   },
   title: {
     fontSize: fontSize.avgSmall,
@@ -172,7 +177,7 @@ export const styles = StyleSheet.create({
   },
   durationButton: {
     paddingHorizontal: wp(3.7),
-    paddingVertical: hp(1),
+    paddingVertical: hp(0.9),
     backgroundColor: colors.darkLiver1,
     borderRadius: radius.radius1,
   },
@@ -181,7 +186,7 @@ export const styles = StyleSheet.create({
   },
   durationText: {
     color: colors.lightGray,
-    fontSize: fontSize.small,
+    fontSize: fontSize.avgSmall,
     fontWeight: '500',
   },
   selectedDurationText: {
@@ -201,14 +206,15 @@ export const styles = StyleSheet.create({
     // marginTop: hp(2),
   },
   rentalList: {
-    gap: wp(4),
+    gap: wp(2.5),
   },
   rentalItem: {
     alignItems: 'center',
     backgroundColor: colors.veryDark,
     borderRadius: radius.radius2,
-    height: hp(20),
-    width: wp(27),
+    height: hp(18),
+    width: wp(23),
+    marginVertical: hp(1),
   },
   itemImageContainer: {
     marginTop: hp(1.5),
@@ -220,7 +226,7 @@ export const styles = StyleSheet.create({
   },
   itemPrice: {
     color: colors.white,
-    fontSize: fontSize.medium,
+    fontSize: fontSize.statusSize,
     fontWeight: '700',
   },
   addButton: {
@@ -230,10 +236,12 @@ export const styles = StyleSheet.create({
   },
   bookButton: {
     backgroundColor: colors.deepPink,
-    paddingVertical: hp(2.5),
+    paddingVertical: hp(2),
     borderRadius: radius.radius3,
     alignItems: 'center',
     marginBottom: hp(1),
+    marginHorizontal: wp(3),
+    marginTop: hp(1),
   },
   bookButtonText: {
     color: colors.white,
@@ -243,22 +251,9 @@ export const styles = StyleSheet.create({
   flatlistView: {
     marginHorizontal: wp(5),
     paddingBottom: hp(1),
-    backgroundColor: colors.RaisinBlack,
-  },
-  // calendar: {
-  //   borderRadius: 10,
-  //   elevation: 2,
-  //   shadowColor: "#000",
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 2,
-  //   },
-  //   shadowOpacity: 0.1,
-  //   shadowRadius: 3.84,
-  // },
-  arrow: {
-    fontSize: 20,
-    color: "#E91E63",
-    fontWeight: "600",
+    marginTop: hp(2),
+    paddingHorizontal: wp(2),
+    borderRadius: radius.radius2,
+    backgroundColor: colors.nero1,
   },
 });
