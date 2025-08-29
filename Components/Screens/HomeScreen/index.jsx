@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   FlatList,
   ImageBackground,
   ScrollView,
+  StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
@@ -20,7 +21,7 @@ import SportsBike from '../../../Components/assets/svg/SportsBike.svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HomeScreen = ({ navigation }) => {
-  const [profileStatus, setProfileStatus] = useState('Pending profile setup');
+  const [searchText, setSearchText] = useState('');
   const [selectedId, setSelectedId] = useState('1');
   const insets = useSafeAreaInsets();
 
@@ -35,6 +36,7 @@ const HomeScreen = ({ navigation }) => {
       rent: '1 Day rental',
       bike: <HeavyBike height={120} width={150} />,
       arrow: <ArrowLeft />,
+      brand: 'Harley-Davidson',
     },
     {
       id: '2',
@@ -46,6 +48,67 @@ const HomeScreen = ({ navigation }) => {
       rent: '1 Day rental',
       bike: <SportsBike height={120} width={150} />,
       arrow: <ArrowLeft />,
+      brand: 'Harley-Davidson',
+    },
+    {
+      id: '3',
+      star: <Star />,
+      rating: '4.6',
+      name: 'Harley-Davidson',
+      model: 'Iron 883',
+      price: '$ 567.00',
+      rent: '1 Day rental',
+      bike: <SportsBike height={120} width={150} />,
+      arrow: <ArrowLeft />,
+      brand: 'Harley-Davidson',
+    },
+    {
+      id: '4',
+      star: <Star />,
+      rating: '4.8',
+      name: 'BMW',
+      model: 'R1250GS',
+      price: '$ 699.00',
+      rent: '1 Day rental',
+      bike: <HeavyBike height={120} width={150} />,
+      arrow: <ArrowLeft />,
+      brand: 'BMW',
+    },
+    {
+      id: '5',
+      star: <Star />,
+      rating: '4.7',
+      name: 'BMW',
+      model: 'S1000RR',
+      price: '$ 799.00',
+      rent: '1 Day rental',
+      bike: <SportsBike height={120} width={150} />,
+      arrow: <ArrowLeft />,
+      brand: 'BMW',
+    },
+    {
+      id: '6',
+      star: <Star />,
+      rating: '4.9',
+      name: 'Ducati',
+      model: 'Panigale V4',
+      price: '$ 899.00',
+      rent: '1 Day rental',
+      bike: <SportsBike height={120} width={150} />,
+      arrow: <ArrowLeft />,
+      brand: 'Ducati',
+    },
+    {
+      id: '7',
+      star: <Star />,
+      rating: '4.5',
+      name: 'Ducati',
+      model: 'Monster 821',
+      price: '$ 649.00',
+      rent: '1 Day rental',
+      bike: <HeavyBike height={120} width={150} />,
+      arrow: <ArrowLeft />,
+      brand: 'Ducati',
     },
   ];
 
@@ -55,6 +118,41 @@ const HomeScreen = ({ navigation }) => {
     { id: '3', text: 'BMW' },
     { id: '4', text: 'Ducati' },
   ];
+
+  const filteredData = useMemo(() => {
+    let filtered = DATA;
+
+    if (selectedId !== '1') {
+      const selectedBrand = cars.find(car => car.id === selectedId)?.text;
+      if (selectedBrand) {
+        filtered = filtered.filter(bike => bike.brand === selectedBrand);
+      }
+    }
+
+    if (searchText.trim()) {
+      const lowerSearch = searchText.toLowerCase();
+      filtered = filtered.filter(
+        bike =>
+          (bike.name && bike.name.toLowerCase().includes(lowerSearch)) ||
+          (bike.model && bike.model.toLowerCase().includes(lowerSearch)),
+      );
+    }
+
+    return filtered;
+  }, [selectedId, searchText]);
+
+  useEffect(() => {
+    if (searchText.trim()) {
+      const matchedBrand = cars.find(
+        car => car.text.toLowerCase() === searchText.toLowerCase(),
+      );
+      if (matchedBrand) {
+        setSelectedId(matchedBrand.id);
+      } else {
+        setSelectedId('1');
+      }
+    } 
+  }, [searchText]);
 
   const handlePress = id => {
     setSelectedId(id);
@@ -98,6 +196,10 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={colors.RaisinBlack}
+      />
       <View style={styles.imagesView}>
         <TouchableOpacity
           onPress={() => {
@@ -120,8 +222,8 @@ const HomeScreen = ({ navigation }) => {
       >
         <TextInput
           style={styles.titleInput}
-          value={profileStatus}
-          onChangeText={setProfileStatus}
+          value={searchText}
+          onChangeText={setSearchText}
           placeholder="Enter profile status"
           placeholderTextColor={colors.Gray}
         />
@@ -168,7 +270,8 @@ const HomeScreen = ({ navigation }) => {
       </View>
       <FlatList
         contentContainerStyle={styles.contentContainer}
-        data={DATA}
+        showsVerticalScrollIndicator={false}
+        data={filteredData}
         renderItem={({ item }) => (
           <Item
             star={item.star}

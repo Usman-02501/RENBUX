@@ -158,6 +158,7 @@ export const styles = StyleSheet.create({
     borderRadius: radius.radius2,
   },
   contentContainer:{
-    gap:hp(1)
+    gap:hp(1),
+    paddingBottom:hp(3)
   }
 });
