@@ -17,6 +17,7 @@ export const colors = {
   veryLightGray: '#F1F1F1',
   quickSilver: '#A1A1A1',
   silver: '#B1B1B1',
+  americanSilver:'#CFCFCF',
   veryDarkPink:'rgba(220, 47, 99, 0.25)',
   pink: '#DC2F59',
   deepPink: '#DC2F63',

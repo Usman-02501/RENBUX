@@ -154,13 +154,15 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     backgroundColor: colors.nero,
+    marginTop: wp(19),
+    borderRadius: radius.radius3,
   },
   modalContainer: {
     backgroundColor: colors.nero1,
-    marginHorizontal: wp(5),
+    marginHorizontal: wp(4),
     paddingHorizontal: wp(5),
     borderRadius: radius.radius2,
-    paddingTop: hp(9),
+    paddingVertical: hp(3),
   },
   line1: {
     marginTop: hp(1),
@@ -174,6 +176,7 @@ export const styles = StyleSheet.create({
   durationContainer: {
     flexDirection: 'row',
     gap: wp(2),
+    paddingBottom:hp(2.5)
   },
   durationButton: {
     paddingHorizontal: wp(3.7),
@@ -192,9 +195,6 @@ export const styles = StyleSheet.create({
   selectedDurationText: {
     color: colors.white,
   },
-  calendar: {
-    // marginTop:hp(2)
-  },
   arrow: {
     fontSize: fontSize.mediumLarge,
     color: colors.white,
@@ -203,7 +203,6 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.small,
     color: colors.quickSilver,
     fontWeight: '500',
-    // marginTop: hp(2),
   },
   rentalList: {
     gap: wp(2.5),
