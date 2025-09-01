@@ -8,11 +8,11 @@ import Cancel from '../../../Components/assets/svg/Cancel.svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const CancelBookingScreen = ({ navigation }) => {
-    const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={[styles.container,{paddingTop:insets.top}]}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
       <TouchableOpacity
         style={styles.backButton}
@@ -34,12 +34,7 @@ const CancelBookingScreen = ({ navigation }) => {
           The amount has been added to your wallet and {'\n'}can be used for
           your next booking.
         </Text>
-        <TouchableOpacity
-          style={styles.walletButton}
-          onPress={() => {
-            navigation.navigate('Chat');
-          }}
-        >
+        <TouchableOpacity style={styles.walletButton}>
           <Text style={styles.walletButtonText}>Check Wallet</Text>
         </TouchableOpacity>
       </View>

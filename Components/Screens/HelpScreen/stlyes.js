@@ -75,11 +75,11 @@ export const styles = StyleSheet.create({
   needHelpText: {
     color: colors.silver,
     fontWeight:'500',
-    fontSize:fontSize.regSmall
+    fontSize:fontSize.avgSmall
   },
   numberText: {
     color:colors.blue,
     fontWeight:'500',
-    fontSize:fontSize.regSmall
+    fontSize:fontSize.avgSmall
   },
 });

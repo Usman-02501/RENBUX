@@ -4,7 +4,7 @@ import { colors, wp, hp, radius, fontSize } from '../../constant';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.deepPink
+    backgroundColor: colors.deepPink,
   },
   backButton: {
     width: wp(12),
@@ -102,7 +102,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: colors.veryDarkPink,
+    backgroundColor: colors.eerieBlack,
     paddingHorizontal: wp(2),
     paddingVertical: wp(1.5),
     borderRadius: radius.radius1,
@@ -127,7 +127,7 @@ export const styles = StyleSheet.create({
   },
   payButtonText: {
     color: colors.white,
-    fontSize: fontSize.medium,
+    fontSize: fontSize.statusSize,
     fontWeight: '700',
   },
   buttonView: {

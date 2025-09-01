@@ -9,7 +9,7 @@ import Call2 from '../../../Components/assets/svg/Call2.svg';
 import Mic1 from '../../../Components/assets/svg/Mic1.svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const CallScreen = () => {
+const CallScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
   return (
     <LinearGradient
@@ -27,7 +27,12 @@ const CallScreen = () => {
         <TouchableOpacity style={styles.backButton}>
           <Volume height={18} width={18} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.callButton}>
+        <TouchableOpacity
+          style={styles.callButton}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Call2 height={28} width={28} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.backButton}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   StatusBar,
   Text,
@@ -21,7 +21,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const ChatBoxScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
-  const messages = [
+  const [messages, setMessages] = useState([
     {
       id: 1,
       text: 'Hi! Just booked the Royal Enfield for tomorrow. Is everything good to go?',
@@ -68,7 +68,31 @@ const ChatBoxScreen = ({ navigation }) => {
       sent: true,
       delivered: true,
     },
-  ];
+  ]);
+  const [inputText, setInputText] = useState('');
+  const scrollViewRef = useRef();
+
+  const handleSendMessage = () => {
+    if (inputText.trim() === '') return;
+
+    const newMessage = {
+      id: messages.length + 1,
+      text: inputText,
+      time: new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
+      sent: true,
+      delivered: true,
+    };
+
+    setMessages([...messages, newMessage]);
+    setInputText('');
+
+    setTimeout(() => {
+      scrollViewRef.current?.scrollToEnd({ animated: true });
+    }, 100);
+  };
 
   const allMessage = message => {
     if (message.sent) {
@@ -117,7 +141,12 @@ const ChatBoxScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.headerActions}>
-          <TouchableOpacity style={styles.actionButton}>
+          <TouchableOpacity
+            style={styles.actionButton}
+            onPress={() => {
+              navigation.navigate('Call');
+            }}
+          >
             <Call1 height={22} width={22} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionButton}>
@@ -125,7 +154,12 @@ const ChatBoxScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <ScrollView style={styles.chatArea} showsVerticalScrollIndicator={false}>
+
+      <ScrollView
+        style={styles.chatArea}
+        showsVerticalScrollIndicator={false}
+        ref={scrollViewRef}
+      >
         <View style={styles.dateSeparatorContainer}>
           <Text style={styles.dateText}>15 July 2023</Text>
         </View>
@@ -135,18 +169,18 @@ const ChatBoxScreen = ({ navigation }) => {
         <View style={styles.inputWrapper}>
           <TextInput
             style={styles.textInput}
-            placeholder="I truly appreciate your ti"
+            placeholder="Type a message"
             placeholderTextColor={colors.quickSilver}
+            value={inputText}
+            onChangeText={text => setInputText(text)}
           />
-          <TouchableOpacity
-            style={styles.micButton}
-            onPress={() => {
-              navigation.navigate('Call');
-            }}
-          >
+          <TouchableOpacity style={styles.micButton}>
             <Mic />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.sendButton}>
+          <TouchableOpacity
+            style={styles.sendButton}
+            onPress={handleSendMessage}
+          >
             <Play />
           </TouchableOpacity>
         </View>

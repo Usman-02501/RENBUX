@@ -75,13 +75,17 @@ const HelpScreen = ({ navigation }) => {
 
             {openMessage === index && (
               <Text style={styles.editText}>{item.answer}</Text>
-            )}      
+            )}
           </View>
         ))}
       </View>
       <View style={styles.callContainer}>
         <Text style={styles.needHelpText}>Need help? Call:</Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Chat');
+          }}
+        >
           <Text style={styles.numberText}> +1 555-123-4567</Text>
         </TouchableOpacity>
       </View>

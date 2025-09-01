@@ -15,6 +15,7 @@ import LoadWallet from '../../../Components/assets/svg/LoadWallet.svg';
 import YamahaBike from '../../../Components/assets/svg/YamahaBike.svg';
 import { colors } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 const WalletSuccessScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -32,7 +33,16 @@ const WalletSuccessScreen = ({ navigation }) => {
           <BackArrow height={13} width={13} />
         </TouchableOpacity>
         <Text style={styles.walletText}>Renbux wallet</Text>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => {
+            ImageCropPicker.openCamera({
+              width: 300,
+              height: 400,
+              cropping: true,
+            });
+          }}
+        >
           <Scanner height={18} width={18} />
         </TouchableOpacity>
       </View>
@@ -79,52 +89,52 @@ const WalletSuccessScreen = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.bottomView}>
-         <View style={styles.transactionView}>
-              <View style={styles.transactionTextView}>
-                <Text style={styles.transactionText}>Transaction</Text>
-                <Text style={styles.seeAllText}>See all</Text>
+        <View style={styles.transactionView}>
+          <View style={styles.transactionTextView}>
+            <Text style={styles.transactionText}>Transaction</Text>
+            <Text style={styles.seeAllText}>See all</Text>
+          </View>
+          <Line1 style={styles.line} />
+          <View style={styles.walletContainer}>
+            <View style={styles.imageTextView}>
+              <View>
+                <LoadWallet height={50} width={50} />
               </View>
-              <Line1 style={styles.line} />
-              <View style={styles.walletContainer}>
-                <View style={styles.imageTextView}>
-                  <View>
-                    <LoadWallet height={50} width={50} />
-                  </View>
-                  <View style={styles.textView}>
-                    <Text style={styles.loadWalletText}>Load wallet</Text>
-                    <Text style={styles.dateText}>24, January I 04:34PM</Text>
-                  </View>
-                </View>
-                <Text style={styles.priceText}>+$2000</Text>
-              </View>
-              <View style={styles.walletContainer}>
-                <View style={styles.imageTextView}>
-                  <View>
-                    <YamahaBike height={50} width={50} />
-                  </View>
-                  <View style={styles.textView}>
-                    <Text style={styles.loadWalletText}>
-                      Yamaha bike rent booked
-                    </Text>
-                    <Text style={styles.dateText}>24, January I 04:34PM</Text>
-                  </View>
-                </View>
-                <Text style={styles.priceText}>-$23.5</Text>
-              </View>
-              <Line1 style={styles.line} />
-              <View style={styles.walletContainer}>
-                <View style={styles.imageTextView}>
-                  <View>
-                    <LoadWallet height={50} width={50} />
-                  </View>
-                  <View style={styles.textView}>
-                    <Text style={styles.loadWalletText}>Load wallet</Text>
-                    <Text style={styles.dateText}>24, January I 04:34PM</Text>
-                  </View>
-                </View>
-                <Text style={styles.priceText}>+$200</Text>
+              <View style={styles.textView}>
+                <Text style={styles.loadWalletText}>Load wallet</Text>
+                <Text style={styles.dateText}>24, January I 04:34PM</Text>
               </View>
             </View>
+            <Text style={styles.priceText}>+$2000</Text>
+          </View>
+          <View style={styles.walletContainer}>
+            <View style={styles.imageTextView}>
+              <View>
+                <YamahaBike height={50} width={50} />
+              </View>
+              <View style={styles.textView}>
+                <Text style={styles.loadWalletText}>
+                  Yamaha bike rent booked
+                </Text>
+                <Text style={styles.dateText}>24, January I 04:34PM</Text>
+              </View>
+            </View>
+            <Text style={styles.priceText}>-$23.5</Text>
+          </View>
+          <Line1 style={styles.line} />
+          <View style={styles.walletContainer}>
+            <View style={styles.imageTextView}>
+              <View>
+                <LoadWallet height={50} width={50} />
+              </View>
+              <View style={styles.textView}>
+                <Text style={styles.loadWalletText}>Load wallet</Text>
+                <Text style={styles.dateText}>24, January I 04:34PM</Text>
+              </View>
+            </View>
+            <Text style={styles.priceText}>+$200</Text>
+          </View>
+        </View>
         <Modal
           animationType="slide"
           transparent={true}

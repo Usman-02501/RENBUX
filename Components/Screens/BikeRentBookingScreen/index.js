@@ -39,7 +39,8 @@ const BikeRentBookingScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
   const [selectedStartDate, setselectedStartDate] = useState('DD/MM/YYYY');
   const [selectedEndDate, setselectedEndDate] = useState('DD/MM/YYYY');
-  //
+  const [selectedId, setSelectedId] = useState(null);
+
   const rentalItems = [
     {
       id: '1',
@@ -73,8 +74,18 @@ const BikeRentBookingScreen = ({ navigation }) => {
 
   const durationButtons = ['1 day', '2 day', '3 day', 'Custom'];
 
+  const handleSelect = id => {
+    setSelectedId(id);
+  };
+
   const renderRentalItem = ({ item }) => (
-    <TouchableOpacity style={styles.rentalItem}>
+    <TouchableOpacity
+      style={[
+        styles.rentalItem,
+        selectedId === item.id && { backgroundColor: colors.veryDarkPink },
+      ]}
+      onPress={() => handleSelect(item.id)}
+    >
       <View style={styles.itemImageContainer}>{item.image}</View>
       <Text style={styles.itemName}>{item.name}</Text>
       <Text style={styles.itemPrice}>{item.price}</Text>
@@ -214,7 +225,7 @@ const BikeRentBookingScreen = ({ navigation }) => {
           <View style={styles.topModalView}>
             <View style={styles.modalContainer}>
               <Text style={styles.title}>Select duration</Text>
-              <Line1 style={styles.line1}  height={2} width={280}/>
+              <Line1 style={styles.line1} height={2} width={280} />
               <View style={styles.durationContainer}>
                 {durationButtons.map(duration => (
                   <TouchableOpacity
@@ -259,7 +270,7 @@ const BikeRentBookingScreen = ({ navigation }) => {
                   fontSize: fontSize.regSmall,
                 }}
               />
-              <Line1 style={styles.line1} height={2} width={280}/>
+              <Line1 style={styles.line1} height={2} width={280} />
               <Text style={styles.periodText}>
                 {'Start Date: ' + selectedStartDate}
               </Text>
@@ -277,7 +288,10 @@ const BikeRentBookingScreen = ({ navigation }) => {
                 contentContainerStyle={styles.rentalList}
               />
             </View>
-            <TouchableOpacity style={styles.bookButton}>
+            <TouchableOpacity
+              style={styles.bookButton}
+              onPress={() => navigation.navigate('Summary')}
+            >
               <Text style={styles.bookButtonText}>Continue</Text>
             </TouchableOpacity>
           </View>

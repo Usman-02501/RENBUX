@@ -91,8 +91,7 @@ const OrderStatusScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
-            // navigation.goBack();
-            navigation.navigate('Wallet');
+            navigation.goBack();
           }}
         >
           <BackArrow />
