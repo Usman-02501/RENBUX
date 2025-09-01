@@ -18,6 +18,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import Toast from 'react-native-toast-message';
+import { useIsFocused } from '@react-navigation/native';
 
 const LoginPage = ({ navigation }) => {
   const [show, setShow] = useState(false);
@@ -26,6 +27,7 @@ const LoginPage = ({ navigation }) => {
   const [shouldValidate, setShouldValidate] = useState(false);
   const [buttonText, setButtonText] = useState('');
   const insets = useSafeAreaInsets();
+  const isButton = useIsFocused();
 
   let userSchema = Yup.object({
     number: Yup.string()
@@ -41,6 +43,12 @@ const LoginPage = ({ navigation }) => {
       visibilityTime: 2000,
     });
   };
+
+  useEffect(() => {
+    if (isButton) {
+      setButtonText('');
+    }
+  }, [isButton]);
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

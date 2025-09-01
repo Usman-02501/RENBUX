@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './stlyes';
 import { colors } from '../../constant';
@@ -9,7 +9,35 @@ import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const HelpScreen = ({ navigation }) => {
+  const [openMessage, setOpenMessage] = useState(null);
   const insets = useSafeAreaInsets();
+
+  const helpData = [
+    {
+      question: 'How can I cancel my booking?',
+      answer: 'You can cancel your booking from the app under "My Bookings".',
+    },
+    {
+      question: 'Can I change the pickup time or date?',
+      answer:
+        'You can edit your booking before the trip begins.\nGo to your booking and tap ‘Edit Booking’.\nChanges depend on bike availability.\nMake sure to make changes at least 1 hour before pickup.',
+    },
+    {
+      question: 'Will I get a refund if I cancel?',
+      answer:
+        'Refund policies depend on your booking type and time of cancelation.',
+    },
+    {
+      question: 'What if there’s an issue with the bike?',
+      answer:
+        'Please contact support immediately or call our helpline for assistance.',
+    },
+  ];
+
+  const Messages = index => {
+    setOpenMessage(openMessage === index ? null : index);
+  };
+
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
@@ -28,34 +56,28 @@ const HelpScreen = ({ navigation }) => {
         <View style={styles.headerSpacer} />
       </View>
       <View style={styles.helpContainer}>
-        <View style={styles.textImageView}>
-          <Text style={styles.text}>How can I cancel my booking?</Text>
-          <ArrowDown />
-        </View>
-        <View style={styles.changeTimeView}>
-          <View style={styles.pickTimeView}>
-            <Text style={styles.text}>
-              Can I change the pickup time or date?
-            </Text>
-            <ArrowUp />
+        {helpData.map((item, index) => (
+          <View
+            key={index}
+            style={
+              openMessage === index
+                ? styles.changeTimeView
+                : styles.textImageView
+            }
+          >
+            <TouchableOpacity
+              style={styles.pickTimeView}
+              onPress={() => Messages(index)}
+            >
+              <Text style={styles.text}>{item.question}</Text>
+              {openMessage === index ? <ArrowUp /> : <ArrowDown />}
+            </TouchableOpacity>
+
+            {openMessage === index && (
+              <Text style={styles.editText}>{item.answer}</Text>
+            )}      
           </View>
-          <Text style={styles.editText}>
-            You can edit your booking before the trip begins.{'\n'}Go to your
-            booking and tap ‘Edit Booking’.{'\n'}Changes depend on bike
-            availability.{'\n'}Make sure to make changes at least 1 hour before
-            pickup.
-          </Text>
-        </View>
-        <View style={styles.textImageView}>
-          <Text style={styles.text}>Will I get a refund if I cancel?</Text>
-          <ArrowDown />
-        </View>
-        <View style={styles.textImageView}>
-          <Text style={styles.text}>
-            What if there’s an issue with the bike?
-          </Text>
-          <ArrowDown />
-        </View>
+        ))}
       </View>
       <View style={styles.callContainer}>
         <Text style={styles.needHelpText}>Need help? Call:</Text>

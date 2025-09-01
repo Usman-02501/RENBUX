@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: radius.radius4,
     borderBottomRightRadius: radius.radius4,
     paddingHorizontal: wp(3),
-    paddingTop:hp(2.5)
+    paddingTop: hp(2.5),
+    height: hp(38),
   },
   headerContainer: {
     flexDirection: 'row',
@@ -44,7 +45,7 @@ export const styles = StyleSheet.create({
   pencilViewContainer: {
     position: 'absolute',
     left: wp(12),
-    top:hp(2)
+    top: hp(2),
   },
   opacity: {
     position: 'absolute',
@@ -65,12 +66,20 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   nameContainer: {
-    flexDirection:'row',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
     paddingTop: hp(3),
     paddingBottom: hp(5),
-    gap: wp(1)
+    gap: wp(1),
+    height: hp(12),
+  },
+  inputnameText: {
+    fontWeight: '700',
+    color: colors.white,
+    paddingVertical: wp(2),
+    fontSize: fontSize.small,
+    backgroundColor: colors.darkBurgundy
   },
   nameText: {
     color: colors.white,

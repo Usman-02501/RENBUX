@@ -42,7 +42,6 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.avgSmall,
   },
   textImageView: {
-    flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: colors.RaisinBlack,
     paddingHorizontal: wp(4),

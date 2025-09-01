@@ -15,13 +15,16 @@ import { colors } from '../../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import ImagePicker from 'react-native-image-crop-picker';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 
 const ProfilePage = ({ navigation }) => {
   const [number, setNumber] = useState('');
   const [group, setGroup] = useState('');
   const [kyc, setKyc] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
-   const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets();
+  const [name, setName] = useState('Kamran');
+  const [isEditingName, setIsEditingName] = useState(false);
 
   const openGallery = () => {
     ImagePicker.openPicker({
@@ -40,8 +43,23 @@ const ProfilePage = ({ navigation }) => {
       });
   };
 
+  const handleNameChange = text => {
+    const letter = /^[A-Za-z]*$/;
+
+    if (letter.test(text) && text.length <= 10) {
+      setName(text);
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Name should be only letters',
+        position: 'top',
+        visibilityTime: 2000,
+      });
+    }
+  };
+
   return (
-    <View style={[styles.container,{paddingTop:insets.top}]}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar barStyle="light-content" backgroundColor={colors.veryDark} />
       <View style={styles.profileContainer}>
         <View style={styles.headerContainer}>
@@ -76,8 +94,24 @@ const ProfilePage = ({ navigation }) => {
           </ImageBackground>
         </View>
         <View style={styles.nameContainer}>
-          <Text style={styles.nameText}>Guest12387</Text>
-          <Pencil />
+          {isEditingName ? (
+            <TextInput
+              style={styles.inputnameText}
+              value={name}
+              onChangeText={handleNameChange}
+              autoFocus={true}
+              onBlur={() => setIsEditingName(false)}
+              maxLength={10}
+              keyboardType="default"
+            />
+          ) : (
+            <Text style={styles.nameText}>{name}</Text>
+          )}
+          {!isEditingName && (
+            <TouchableOpacity onPress={() => setIsEditingName(true)}>
+              <Pencil />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
       <View style={styles.bottomContainer}>
@@ -92,11 +126,7 @@ const ProfilePage = ({ navigation }) => {
             placeholder="Emergency contact number"
             placeholderTextColor={colors.white}
           />
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Rent');
-            }}
-          >
+          <TouchableOpacity>
             <Text style={styles.settingsText}>+ Add</Text>
           </TouchableOpacity>
         </LinearGradient>

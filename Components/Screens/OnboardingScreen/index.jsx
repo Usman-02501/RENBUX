@@ -43,12 +43,8 @@ const OnboardingScreen = ({ navigation }) => {
       if (swiperRef.current) {
         swiperRef.current.scrollBy(1);
       }
-      setTimeout(() => {
-        navigation.navigate('Brand');
-      }, 1000);
     } else {
-      // Last screen - handle completion
-      // console.log('Onboarding completed!');
+      navigation.navigate('Brand');
     }
 
     setTimeout(() => {

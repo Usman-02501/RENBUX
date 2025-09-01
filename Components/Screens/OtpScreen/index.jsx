@@ -12,12 +12,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import { useIsFocused } from '@react-navigation/native';
 
 const OtpScreen = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { otpSent } = route.params;
   const [shouldValidate, setShouldValidate] = useState(false);
   const [buttonText, setButtonText] = useState('');
+  const isFocused = useIsFocused();
 
   let userSchema = Yup.object({
     otp: Yup.string()
@@ -35,6 +37,12 @@ const OtpScreen = ({ navigation, route }) => {
       });
     }
   }, []);
+
+  useEffect(() => {
+    if (isFocused) {
+      setButtonText('');
+    }
+  }, [isFocused]);
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
