@@ -72,10 +72,18 @@ export const styles = StyleSheet.create({
     width: wp(30),
   },
   socialContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: wp(5),
-    marginTop: hp(6.5),
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginTop: hp(6.5),
+  gap:wp(5)
+},
+  flagView: {
+    paddingVertical: hp(1),
+    paddingHorizontal:wp(1)
+  },
+  flagText: {
+   fontSize: fontSize.mediumSmall,
+    color: colors.black,
+    fontWeight: '500',
   },
 });

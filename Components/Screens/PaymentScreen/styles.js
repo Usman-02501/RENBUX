@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   topButtonsView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop:hp(2)
   },
   backButton: {
     width: wp(12),
@@ -25,8 +26,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.brightGray,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'flex-end',
-    marginTop: hp(2),
+    alignSelf: 'flex-end'
   },
   SuccessImageView: {
     alignItems: 'center',

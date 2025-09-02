@@ -21,6 +21,7 @@ const HelpScreen = ({ navigation }) => {
       question: 'Can I change the pickup time or date?',
       answer:
         'You can edit your booking before the trip begins.\nGo to your booking and tap ‘Edit Booking’.\nChanges depend on bike availability.\nMake sure to make changes at least 1 hour before pickup.',
+      clickable: true,
     },
     {
       question: 'Will I get a refund if I cancel?',
@@ -73,9 +74,16 @@ const HelpScreen = ({ navigation }) => {
               {openMessage === index ? <ArrowUp /> : <ArrowDown />}
             </TouchableOpacity>
 
-            {openMessage === index && (
-              <Text style={styles.editText}>{item.answer}</Text>
-            )}
+            {openMessage === index &&
+              (item.clickable ? (
+                <TouchableOpacity
+                onPress={() =>{navigation.navigate('Chat')}}
+                >
+                  <Text style={styles.editText}>{item.answer}</Text>
+                </TouchableOpacity>
+              ) : (
+                <Text style={styles.editText}>{item.answer}</Text>
+              ))}
           </View>
         ))}
       </View>
@@ -83,7 +91,7 @@ const HelpScreen = ({ navigation }) => {
         <Text style={styles.needHelpText}>Need help? Call:</Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Chat');
+            navigation.navigate('Call');
           }}
         >
           <Text style={styles.numberText}> +1 555-123-4567</Text>

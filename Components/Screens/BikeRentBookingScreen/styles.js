@@ -30,17 +30,17 @@ export const styles = StyleSheet.create({
     paddingTop: hp(3),
   },
   ironBikeView: {
-    height: hp(35),
+    height: hp(33),
     alignItems: 'center',
   },
   ironBike: {
     position: 'absolute',
-    bottom: 72,
+    bottom: hp(6),
     zIndex: 1,
   },
   roundShape: {
     position: 'absolute',
-    bottom: 68,
+    bottom: hp(5),
   },
   harleyIronView: {
     flexDirection: 'row',
@@ -59,7 +59,8 @@ export const styles = StyleSheet.create({
   allButtonView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: hp(7),
+    marginTop: hp(6),
+    marginBottom:hp(3)
   },
   buttonsContainerView: {
     alignItems: 'center',
@@ -87,10 +88,6 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: fontSize.mediumSmall,
     paddingTop: hp(0.5),
-  },
-  imageBackGround: {
-    height: hp(29),
-    width: wp('90%'),
   },
   bookNowCard: {
     height: hp(25),

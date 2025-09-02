@@ -54,12 +54,7 @@ const WalletSuccessScreen = ({ navigation }) => {
       </View>
       <View style={styles.allButtonsView}>
         <View>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => {
-              navigation.navigate('Book');
-            }}
-          >
+          <TouchableOpacity style={styles.backButton}>
             <Plus1 height={18} width={18} />
           </TouchableOpacity>
           <Text style={styles.addText}>Add</Text>

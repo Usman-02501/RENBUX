@@ -50,6 +50,12 @@ const LoginPage = ({ navigation }) => {
     }
   }, [isButton]);
 
+  const CustomItemTemplate = ({ item, onPress }) => (
+    <TouchableOpacity onPress={onPress} style={styles.flagView}>
+      <Text style={styles.flagText}>{item.dial_code}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar
@@ -111,6 +117,9 @@ const LoginPage = ({ navigation }) => {
                         setShow(false);
                       }}
                       onBackdropPress={() => setShow(false)}
+                      itemTemplate={({ item, onPress }) => (
+                        <CustomItemTemplate item={item} onPress={onPress} />
+                      )}
                     />
                   </View>
                   <TextInput

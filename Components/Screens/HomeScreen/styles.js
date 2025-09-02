@@ -1,11 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { colors, wp, hp, fontSize, radius } from '../../constant';
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.RaisinBlack,
-    paddingHorizontal: wp(4)
+    paddingHorizontal: wp(4),
   },
   imagesView: {
     flexDirection: 'row',
@@ -85,7 +87,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom:hp(2)
+    marginBottom: hp(2),
   },
   popularText: {
     fontSize: fontSize.medium,
@@ -99,8 +101,8 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   imageBackGround: {
-    height: hp(27),
-    width: '100%',
+    height: height * 0.27,
+    width: width * 0.92,
   },
   listTopView: {
     flexDirection: 'row',
@@ -157,8 +159,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: radius.radius2,
   },
-  contentContainer:{
-    gap:hp(1),
-    paddingBottom:hp(3)
-  }
+  contentContainer: {
+    gap: hp(1),
+    paddingBottom: hp(3),
+  },
 });

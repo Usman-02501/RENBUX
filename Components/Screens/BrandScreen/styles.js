@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: hp(1),
   },
   brandItem: {
-    height: hp(6),
+    height: hp(5),
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: wp(3),
@@ -55,10 +55,15 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
   },
   skipButtonText: {
-    marginTop:hp(2),
+    marginTop: hp(2),
     textAlign: 'center',
     color: colors.silverColor,
     fontSize: fontSize.avgSmall,
     fontWeight: '400',
+  },
+  buttonsView: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    paddingBottom:hp(2)
   },
 });

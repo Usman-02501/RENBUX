@@ -18,7 +18,7 @@ const OnboardingScreen = ({ navigation }) => {
   const slides = [
     {
       id: 1,
-      image: <BikePerson height={270} width={270} />,
+      image: <BikePerson height={250} width={250} />,
       title: 'Lets choose your fav bike and enjoy ride with Renbux app',
       description:
         'Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar',
@@ -27,7 +27,7 @@ const OnboardingScreen = ({ navigation }) => {
     },
     {
       id: 2,
-      image: <Cycle height={270} width={270} />,
+      image: <Cycle height={250} width={250} />,
       title: 'Lets choose your fav bike and enjoy ride with Renbux app',
       description:
         'Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar',
@@ -77,7 +77,7 @@ const OnboardingScreen = ({ navigation }) => {
         onIndexChanged={handleIndexChanged}
         scrollEnabled={false}
       >
-        {slides.map((item, index) => (
+        {slides.map(item => (
           <View key={item.id} style={styles.content}>
             <View style={styles.imageContainer}>{item.image}</View>
             <View style={styles.textContainer}>
@@ -104,7 +104,7 @@ const OnboardingScreen = ({ navigation }) => {
           railStyles={styles.swipeButtonRail}
           thumbIconStyles={styles.swipeButtonThumb}
           onSwipeSuccess={handleSwipeSuccess}
-          shouldResetAfterSuccess={false}
+          shouldResetAfterSuccess={true}
           resetAfterSuccessAnimDelay={0}
           thumbIconComponent={() => <ButtonIcon />}
         />

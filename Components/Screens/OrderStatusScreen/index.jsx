@@ -8,6 +8,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { styles } from './styles';
 import { colors } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 const DATA = [
   {
@@ -51,31 +52,39 @@ const Item = ({
   date,
   status,
   txtstyle,
-}) => (
-  <View style={styles.flatlistItemContainer}>
-    <View style={styles.toplistView}>
-      <View style={styles.bikeView}>{bike}</View>
-      <View>
-        <Text style={styles.modelText}>{model}</Text>
-        <Text style={styles.storeText}>{store}</Text>
-        <Text style={styles.quantityText}>{quantity}</Text>
+}) => {
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity
+      style={styles.flatlistItemContainer}
+      onPress={() => {
+        navigation.navigate('Book');
+      }}
+    >
+      <View style={styles.toplistView}>
+        <View style={styles.bikeView}>{bike}</View>
+        <View>
+          <Text style={styles.modelText}>{model}</Text>
+          <Text style={styles.storeText}>{store}</Text>
+          <Text style={styles.quantityText}>{quantity}</Text>
+        </View>
       </View>
-    </View>
-    <View style={styles.lineView}>{line}</View>
-    <View style={styles.bottomlistView}>
-      <Text style={styles.dateText}>{date}</Text>
-      <Text
-        style={[
-          styles.statusText,
-          { color: status === 'Pending' ? colors.brown : colors.darkGreen },
-          txtstyle,
-        ]}
-      >
-        {status}
-      </Text>
-    </View>
-  </View>
-);
+      <View style={styles.lineView}>{line}</View>
+      <View style={styles.bottomlistView}>
+        <Text style={styles.dateText}>{date}</Text>
+        <Text
+          style={[
+            styles.statusText,
+            { color: status === 'Pending' ? colors.brown : colors.darkGreen },
+            txtstyle,
+          ]}
+        >
+          {status}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const OrderStatusScreen = ({ navigation }) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -85,7 +94,7 @@ const OrderStatusScreen = ({ navigation }) => {
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
-      style={[styles.container,{paddingTop:insets.top}]}
+      style={[styles.container, { paddingTop: insets.top }]}
     >
       <View style={styles.topView}>
         <TouchableOpacity

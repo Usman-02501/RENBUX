@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { styles } from './styles';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors, fontSize } from '../../constant';
+import { colors, fontSize, hp, wp } from '../../constant';
 import Drawer from '../../../Components/assets/svg/Drawer.svg';
 import Star2 from '../../../Components/assets/svg/Star2.svg';
 import Star from '../../../Components/assets/svg/Star.svg';
@@ -258,8 +258,8 @@ const BikeRentBookingScreen = ({ navigation }) => {
                 selectedDayColor={colors.veryDarkPink}
                 selectedDayTextColor={colors.white}
                 onDateChange={onDateChange}
-                height={290}
-                width={310}
+                height={hp(80)}
+                width={wp(80)}
                 previousTitle={<BackArrow height={17} width={17} />}
                 nextTitle={<ForwardArrow height={20} width={20} />}
                 monthTitleStyle={{ color: colors.white }}
