@@ -101,12 +101,14 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   imageBackGround: {
-    height: height * 0.27,
-    width: width * 0.92,
+    width: width * 0.91,
+    overflow: 'hidden',
+    aspectRatio: 16 / 9,
   },
   listTopView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: wp(2)
   },
   listTextContainer: {
     paddingLeft: wp(4),
@@ -134,7 +136,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: hp(2.8),
+    marginTop: hp(4),
+    paddingHorizontal: wp(1),
   },
   rentContainer: {
     flexDirection: 'row',
@@ -150,14 +153,12 @@ export const styles = StyleSheet.create({
     color: colors.Gray,
     fontSize: fontSize.small,
   },
-  bikeView: {},
   arrowView: {
-    alignItems: 'center',
+    paddingHorizontal: wp(2.5),
+    paddingVertical: hp(1),
     backgroundColor: colors.deepPink,
-    height: hp(6.5),
-    width: wp(13),
-    justifyContent: 'center',
     borderRadius: radius.radius2,
+    borderTopLeftRadius: radius.radius7,
   },
   contentContainer: {
     gap: hp(1),

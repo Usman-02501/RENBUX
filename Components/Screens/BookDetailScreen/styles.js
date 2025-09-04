@@ -196,4 +196,83 @@ export const styles = StyleSheet.create({
     fontSize: fontSize.statusSize,
     fontWeight: '700',
   },
+  overlay: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: colors.modalBackGroundColor,
+  },
+  modalTextView: {
+    backgroundColor: colors.nero1,
+    paddingHorizontal:wp(3),
+    paddingVertical:hp(3),
+    marginBottom:hp(2.5),
+    borderRadius:radius.radius2
+  },
+  modalContainer: {
+    backgroundColor: colors.RaisinBlack,
+    borderRadius: radius.radius7,
+    paddingHorizontal: wp(6),
+    paddingVertical: hp(4),
+  },
+  title: {
+    fontWeight: '700',
+    fontSize: fontSize.mediumSmall,
+    color: colors.antiFlashWhite,
+    marginBottom: hp(1),
+  },
+  subtitle: {
+    fontSize: fontSize.small,
+    color: colors.lightGray,
+    fontWeight: '400',
+    marginBottom: hp(1),
+  },
+  productContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: wp(3),
+    backgroundColor: colors.charlestonGreen1,
+    borderRadius: radius.radius2,
+  },
+  productName: {
+    fontWeight: '500',
+    fontSize: fontSize.mediumSmall,
+    color: colors.antiFlashWhite,
+  },
+  productDetails: {
+    fontSize: fontSize.avgSmall,
+    color: colors.lightGray,
+    fontWeight: '400',
+    marginBottom: hp(1),
+  },
+  price: {
+    fontSize: fontSize.mediumSmall,
+    color: colors.whiteShade,
+    fontWeight: '600',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    gap: wp(2),
+  },
+  goBackButton: {
+    backgroundColor: colors.graniteGray,
+    borderRadius: radius.radius9,
+  },
+  goBackText: {
+    fontWeight: '700',
+    paddingHorizontal: wp(8),
+    paddingVertical: hp(2),
+    color: colors.white,
+    fontSize: fontSize.mediumSmall,
+  },
+  cancelButton: {
+    borderRadius: radius.radius9,
+    backgroundColor: colors.deepPink,
+  },
+  cancelText: {
+    fontWeight: '700',
+    paddingHorizontal: wp(10),
+    paddingVertical: hp(2),
+    color: colors.white,
+    fontSize: fontSize.mediumSmall,
+  },
 });

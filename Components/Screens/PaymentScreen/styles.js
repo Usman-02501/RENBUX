@@ -89,7 +89,7 @@ export const styles = StyleSheet.create({
   buttonView: {
     flex: 1,
     justifyContent: 'flex-end',
-    paddingBottom: hp(2),
+    paddingBottom: hp(3),
   },
   loadButton: {
     backgroundColor: colors.deepPink,

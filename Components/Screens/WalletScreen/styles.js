@@ -133,6 +133,7 @@ export const styles = StyleSheet.create({
   buttonView: {
     paddingHorizontal: wp(3),
     paddingTop: hp(1),
+    paddingBottom:hp(1)
   },
   modalContainer:{
     flex:1,

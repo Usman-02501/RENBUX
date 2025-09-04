@@ -58,7 +58,7 @@ const Item = ({
     <TouchableOpacity
       style={styles.flatlistItemContainer}
       onPress={() => {
-        navigation.navigate('Book');
+        navigation.navigate('Book', { status });
       }}
     >
       <View style={styles.toplistView}>

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
   TouchableOpacity,
   ScrollView,
   Image,
-  StatusBar,
+  Modal,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { styles } from './styles';
 import BackArrow from '../../../Components/assets/svg/BackArrow.svg';
@@ -22,39 +24,43 @@ import Calendar from '../../../Components/assets/svg/Calendar.svg';
 import Cross from '../../../Components/assets/svg/Cross.svg';
 import Map from '../../../Components/assets/svg/Map.svg';
 import TextImage from '../../../Components/assets/svg/TextImage.svg';
+import IronBike from '../../../Components/assets/svg/IronBike.svg';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors, hp } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 
-const BookDetailScreen = ({ navigation }) => {
+const BookDetailScreen = ({ navigation, route }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   const insets = useSafeAreaInsets();
+  const { status } = route.params;
   return (
     <LinearGradient
       colors={[colors.nearBlack, colors.chineseblack]}
       style={styles.container}
     >
       <ScrollView style={styles.scrollViewContainer}>
-        <View style={[styles.topView,{paddingTop:insets.top}]}>
+        <View style={[styles.topView, { paddingTop: insets.top }]}>
           <View style={styles.headerView}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => {
-              navigation.goBack();
-            }}
-          >
-            <BackArrow height={13} width={13} />
-          </TouchableOpacity>
-          <Text style={styles.walletText}>Booked details</Text>
-          <TouchableOpacity style={styles.backButton}>
-            <Help height={18} width={18} />
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => {
+                navigation.goBack();
+              }}
+            >
+              <BackArrow height={13} width={13} />
+            </TouchableOpacity>
+            <Text style={styles.walletText}>Booked details</Text>
+            <TouchableOpacity style={styles.backButton}>
+              <Help height={18} width={18} />
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.bottomContainer}>
           <View style={styles.bikeView}>
             <SportsBike1 height={120} width={180} />
             <View style={styles.confirmTextView}>
-              <Text style={styles.confirmText}>Confirmed</Text>
+              <Text style={styles.confirmText}>{status}</Text>
             </View>
           </View>
           <Text style={styles.modalText}>Royal Enfield Classic 350</Text>
@@ -127,7 +133,7 @@ const BookDetailScreen = ({ navigation }) => {
             <TouchableOpacity
               style={[styles.chatTextView, { paddingTop: hp(2) }]}
               onPress={() => {
-                navigation.navigate('Cancel');
+                setModalVisible(true);
               }}
             >
               <Cross />
@@ -143,6 +149,12 @@ const BookDetailScreen = ({ navigation }) => {
             <Line1 height={10} width={270} style={styles.line} />
             <TouchableOpacity
               style={[styles.chatTextView, { paddingTop: hp(2) }]}
+              onPress={() => {
+                Toast.show({
+                  type: 'success',
+                  text1: 'Receipt emailed successfully!',
+                });
+              }}
             >
               <TextImage />
               <Text style={styles.chatText}>Send receipts to mail</Text>
@@ -154,6 +166,48 @@ const BookDetailScreen = ({ navigation }) => {
           <Text style={styles.downloadBottonText}>Download receipt</Text>
         </TouchableOpacity>
       </ScrollView>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          style={{ flex: 1, justifyContent: 'flex-end' }}
+        >
+          <View style={styles.overlay}>
+            <View style={styles.modalContainer}>
+              <View style={styles.modalTextView}>
+                <Text style={styles.title}>Cancel Booking</Text>
+                <Text style={styles.subtitle}>
+                  Are you sure you want to cancel this{'\n'} booking?
+                </Text>
+                <View style={styles.productContainer}>
+                  <View>
+                    <Text style={styles.productName}>
+                      Royal Enfield Classic 350
+                    </Text>
+                    <Text style={styles.productDetails}>
+                      Helmet x1 , Jacket x1
+                    </Text>
+                    <Text style={styles.price}>$234</Text>
+                  </View>
+                  <IronBike height={90} width={90} />
+                </View>
+              </View>
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.goBackButton} onPress={()=>{setModalVisible(false)}}>
+                  <Text style={styles.goBackText}>Go Back</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cancelButton} onPress={()=>{navigation.navigate('Cancel')}}>
+                  <Text style={styles.cancelText}>Cancel Booking</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </KeyboardAvoidingView>
+      </Modal>
     </LinearGradient>
   );
 };

@@ -13,7 +13,7 @@ import { styles } from './styles';
 import Person from '../../../Components/assets/svg/Person.svg';
 import Drawer from '../../../Components/assets/svg/Drawer.svg';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors } from '../../constant';
+import { colors, hp, wp } from '../../constant';
 import Star from '../../../Components/assets/svg/Star.svg';
 import HeavyBike from '../../../Components/assets/svg/HeavyBike.svg';
 import ArrowLeft from '../../../Components/assets/svg/ArrowLeft.svg';
@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
       model: 'Iron 883',
       price: '$ 567.00',
       rent: '1 Day rental',
-      bike: <HeavyBike height={120} width={150} />,
+      bike: <HeavyBike height={hp(13)} width={wp(70)} />,
       arrow: <ArrowLeft />,
       brand: 'Harley-Davidson',
     },
@@ -46,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
       model: 'Iron 883',
       price: '$ 567.00',
       rent: '1 Day rental',
-      bike: <SportsBike height={120} width={150} />,
+      bike: <SportsBike height={hp(13)} width={wp(71.8)} />,
       arrow: <ArrowLeft />,
       brand: 'Harley-Davidson',
     },
@@ -58,7 +58,7 @@ const HomeScreen = ({ navigation }) => {
       model: 'Iron 883',
       price: '$ 567.00',
       rent: '1 Day rental',
-      bike: <SportsBike height={120} width={150} />,
+      bike: <SportsBike height={hp(13)} width={wp(71.8)} />,
       arrow: <ArrowLeft />,
       brand: 'Harley-Davidson',
     },
@@ -67,10 +67,10 @@ const HomeScreen = ({ navigation }) => {
       star: <Star />,
       rating: '4.8',
       name: 'BMW',
-      model: 'R1250GS',
+      model: 'Iron 883',
       price: '$ 699.00',
       rent: '1 Day rental',
-      bike: <HeavyBike height={120} width={150} />,
+      bike: <HeavyBike height={hp(13)} width={wp(70)} />,
       arrow: <ArrowLeft />,
       brand: 'BMW',
     },
@@ -79,10 +79,10 @@ const HomeScreen = ({ navigation }) => {
       star: <Star />,
       rating: '4.7',
       name: 'BMW',
-      model: 'S1000RR',
+      model: 'Iron 883',
       price: '$ 799.00',
       rent: '1 Day rental',
-      bike: <SportsBike height={120} width={150} />,
+      bike: <SportsBike height={hp(13)} width={wp(71.8)} />,
       arrow: <ArrowLeft />,
       brand: 'BMW',
     },
@@ -91,10 +91,10 @@ const HomeScreen = ({ navigation }) => {
       star: <Star />,
       rating: '4.9',
       name: 'Ducati',
-      model: 'Panigale V4',
+      model: 'Iron 883',
       price: '$ 899.00',
       rent: '1 Day rental',
-      bike: <SportsBike height={120} width={150} />,
+      bike: <SportsBike height={hp(13)} width={wp(71.8)} />,
       arrow: <ArrowLeft />,
       brand: 'Ducati',
     },
@@ -103,10 +103,10 @@ const HomeScreen = ({ navigation }) => {
       star: <Star />,
       rating: '4.5',
       name: 'Ducati',
-      model: 'Monster 821',
+      model: 'Iron 883',
       price: '$ 649.00',
       rent: '1 Day rental',
-      bike: <HeavyBike height={120} width={150} />,
+      bike: <HeavyBike height={hp(13)} width={wp(70)} />,
       arrow: <ArrowLeft />,
       brand: 'Ducati',
     },
@@ -151,7 +151,7 @@ const HomeScreen = ({ navigation }) => {
       } else {
         setSelectedId('1');
       }
-    } 
+    }
   }, [searchText]);
 
   const handlePress = id => {
@@ -159,39 +159,41 @@ const HomeScreen = ({ navigation }) => {
   };
 
   const Item = ({ star, rating, name, model, price, rent, bike, arrow }) => (
-    <ImageBackground
-      style={styles.imageBackGround}
-      source={require('../../../Components/assets/images/backGround.png')}
-      resizeMode="cover"
-    >
-      <View style={styles.listTopView}>
-        <View style={styles.listTextContainer}>
-          <View style={styles.starContainer}>
-            <View>{star}</View>
-            <Text style={styles.ratingText}>{rating}</Text>
+    <View>
+      <ImageBackground
+        style={styles.imageBackGround}
+        source={require('../../../Components/assets/images/backGround.png')}
+        resizeMode="contain"
+      >
+        <View style={styles.listTopView}>
+          <View style={styles.listTextContainer}>
+            <View style={styles.starContainer}>
+              <View>{star}</View>
+              <Text style={styles.ratingText}>{rating}</Text>
+            </View>
+            <Text style={styles.nameText}>{name}</Text>
+            <Text style={styles.modelText}>{model}</Text>
           </View>
-          <Text style={styles.nameText}>{name}</Text>
-          <Text style={styles.modelText}>{model}</Text>
+          <View>
+            <View>{bike}</View>
+          </View>
         </View>
-        <View>
-          <View>{bike}</View>
+        <View style={styles.listBottomView}>
+          <View style={styles.rentContainer}>
+            <Text style={styles.priceText}>{price}</Text>
+            <Text style={styles.rentText}>{rent}</Text>
+          </View>
+          <TouchableOpacity
+            style={styles.arrowView}
+            onPress={() => {
+              navigation.navigate('Rent');
+            }}
+          >
+            {arrow}
+          </TouchableOpacity>
         </View>
-      </View>
-      <View style={styles.listBottomView}>
-        <View style={styles.rentContainer}>
-          <Text style={styles.priceText}>{price}</Text>
-          <Text style={styles.rentText}>{rent}</Text>
-        </View>
-        <TouchableOpacity
-          style={styles.arrowView}
-          onPress={() => {
-            navigation.navigate('Rent');
-          }}
-        >
-          {arrow}
-        </TouchableOpacity>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 
   return (
