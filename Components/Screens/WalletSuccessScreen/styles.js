@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { colors, wp, hp, radius, fontSize } from '../../constant';
+import { colors, wp, hp, radius, fontSize, borderWidth } from '../../constant';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.deepPink
+    backgroundColor: colors.deepPink,
   },
   backButton: {
     width: wp(12),
@@ -153,13 +153,79 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop:hp(2)
+    paddingTop: hp(2),
   },
-  imageTextView:{
-    flexDirection:'row',
-    alignItems:'center'
+  imageTextView: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  textView:{
-   paddingLeft:wp(2) 
-  }
+  textView: {
+    paddingLeft: wp(2),
+  },
+  loadButton: {
+    backgroundColor: colors.deepPink,
+    borderRadius: radius.radius9,
+    paddingVertical: wp(2.6),
+    paddingHorizontal: hp(8),
+    alignItems: 'center',
+  },
+  loadButtonText: {
+    color: colors.white,
+    fontSize: fontSize.mediumSmall,
+    fontWeight: '700',
+  },
+  topModalView1: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: colors.modalBackGroundColor,
+  },
+  modalView1: {
+    backgroundColor: colors.nero,
+    paddingHorizontal: wp(2),
+    borderTopRightRadius: radius.radius3,
+    borderTopLeftRadius: radius.radius3,
+  },
+  modalBottomView: {
+    backgroundColor: colors.nero1,
+    marginHorizontal: wp(2),
+    paddingHorizontal: wp(3),
+    paddingVertical: hp(2),
+    borderRadius: radius.radius8,
+    marginTop: hp(2),
+    marginBottom: hp(2),
+  },
+  addMoneyText: {
+    fontWeight: '700',
+    color: colors.antiFlashWhite,
+    paddingBottom: hp(1),
+  },
+  line: {
+    paddingBottom: hp(3),
+  },
+  moneyView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: hp(2),
+  },
+  moneyText: {
+    fontWeight: '500',
+    color: colors.white,
+    paddingHorizontal: wp(4),
+    paddingVertical: hp(1),
+    fontSize: fontSize.regSmall,
+    backgroundColor: colors.darkLiver1,
+    borderRadius: radius.radius1,
+  },
+  titleInput: {
+    color: colors.silver,
+    fontSize: fontSize.small,
+    fontWeight: '400',
+    borderColor: colors.red,
+    borderWidth: borderWidth.normal,
+    paddingVertical: hp(1),
+    borderRadius: radius.radius2,
+    backgroundColor: colors.darkLiver1,
+    marginBottom: hp(2),
+    paddingLeft: wp(4),
+  },
 });

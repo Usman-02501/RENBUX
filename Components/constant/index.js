@@ -65,6 +65,7 @@ export const colors = {
   blue: '#2A80D7',
   red: '#D31414',
   darkBurgundy: '#5C1D2C',
+  modalBackGroundColor:'rgba(0, 0, 0, 0.8)',
 };
 
 export const radius = {

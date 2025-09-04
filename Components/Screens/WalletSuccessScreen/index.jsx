@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { styles } from './styles';
-import { Modal, StatusBar, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Modal,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+  KeyboardAvoidingView,
+  TextInput,
+} from 'react-native';
 import BackArrow from '../../../Components/assets/svg/BackArrow.svg';
 import Scanner from '../../../Components/assets/svg/Scanner.svg';
 import BriefCase from '../../../Components/assets/svg/BriefCase.svg';
@@ -13,12 +21,14 @@ import Share from '../../../Components/assets/svg/Share.svg';
 import Line1 from '../../../Components/assets/svg/Line1.svg';
 import LoadWallet from '../../../Components/assets/svg/LoadWallet.svg';
 import YamahaBike from '../../../Components/assets/svg/YamahaBike.svg';
-import { colors } from '../../constant';
+import { colors, hp } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ImageCropPicker from 'react-native-image-crop-picker';
 
 const WalletSuccessScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible1, setModalVisible1] = useState(false);
+  const [number, setNumber] = useState('');
   const insets = useSafeAreaInsets();
 
   return (
@@ -54,7 +64,12 @@ const WalletSuccessScreen = ({ navigation }) => {
       </View>
       <View style={styles.allButtonsView}>
         <View>
-          <TouchableOpacity style={styles.backButton}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => {
+              setModalVisible1(true);
+            }}
+          >
             <Plus1 height={18} width={18} />
           </TouchableOpacity>
           <Text style={styles.addText}>Add</Text>
@@ -155,6 +170,53 @@ const WalletSuccessScreen = ({ navigation }) => {
               </TouchableOpacity>
             </View>
           </TouchableOpacity>
+        </Modal>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible1}
+          onRequestClose={() => setModalVisible1(false)}
+        >
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            style={{ flex: 1, justifyContent: 'flex-end' }}
+          >
+            <View style={styles.topModalView1}>
+            <View style={styles.modalView1}>
+              <View style={styles.modalBottomView}>
+                <Text style={styles.addMoneyText}>Add money</Text>
+                <Line1 style={styles.line} />
+                <TextInput
+                  style={styles.titleInput}
+                  value={number}
+                  onChangeText={setNumber}
+                  placeholder="Amount to be added"
+                  placeholderTextColor={colors.silver}
+                />
+                <View style={styles.moneyView}>
+                  {['1000', '2000', '5000', '8000'].map(amount => (
+                    <TouchableOpacity
+                      key={amount}
+                      onPress={() => setNumber(amount)}
+                    >
+                      <Text style={styles.moneyText}>+{amount}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </View>
+              <TouchableOpacity
+                style={[styles.loadButton, { marginBottom: hp(1) }]}
+                onPress={() => {
+                  navigation.navigate('Wallet', { amount: number });
+                }}
+              >
+                <Text style={styles.loadButtonText}>
+                  {number ? `Proceed to add ${number}` : 'Proceed'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            </View>
+          </KeyboardAvoidingView>
         </Modal>
       </View>
     </View>
