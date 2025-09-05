@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { colors, fontSize, hp, radius, wp } from '../../constant';
+const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,12 +22,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   arrowView: {
-    height: hp(6.5),
-    width: wp(13),
+    width: width * 0.1,
+    height: width * 0.1,
+    borderRadius: (width * 0.1) / 2,
     backgroundColor: colors.arrowBackColor,
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: radius.radius4,
+    alignItems: 'center'
   },
   profileTextView: {
     flex: 1,
@@ -59,9 +61,9 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: radius.radius6,
   },
   imageContainer: {
-    height: hp(16),
-    width: wp(29),
-    borderRadius: radius.radius5,
+    width: width * 0.3,
+    height: width * 0.3,
+    borderRadius: (width * 0.3) / 2,
     alignSelf: 'center',
     overflow: 'hidden',
   },
@@ -69,7 +71,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: hp(3),
     paddingBottom: hp(5),
     gap: wp(1),
     height: hp(12),

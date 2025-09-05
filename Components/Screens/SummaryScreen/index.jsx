@@ -7,7 +7,7 @@ import Helmet from '../../../Components/assets/svg/Helmet.svg';
 import Jacket from '../../../Components/assets/svg/Jacket.svg';
 import Wallet from '../../../Components/assets/svg/Wallet.svg';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors } from '../../constant';
+import { colors,hp,wp } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const SummaryScreen = ({ navigation }) => {
@@ -25,7 +25,7 @@ const SummaryScreen = ({ navigation }) => {
             navigation.goBack();
           }}
         >
-          <BackArrow />
+          <BackArrow  height={hp(2)} width={wp(2)}/>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Summary</Text>
         <View style={styles.headerSpacer} />

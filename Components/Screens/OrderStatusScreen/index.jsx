@@ -6,7 +6,7 @@ import Help from '../../../Components/assets/svg/Help.svg';
 import Line1 from '../../../Components/assets/svg/Line1.svg';
 import LinearGradient from 'react-native-linear-gradient';
 import { styles } from './styles';
-import { colors } from '../../constant';
+import { colors, hp, wp } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
@@ -103,7 +103,7 @@ const OrderStatusScreen = ({ navigation }) => {
             navigation.goBack();
           }}
         >
-          <BackArrow />
+          <BackArrow  height={hp(2)} width={wp(2)}/>
         </TouchableOpacity>
         <View style={styles.segmentcontrolview}>
           <TouchableOpacity

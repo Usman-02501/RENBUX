@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors } from '../../constant';
+import { colors, hp, wp } from '../../constant';
 import BackArrow from '../../../Components/assets/svg/BackArrow.svg';
 import Share from '../../../Components/assets/svg/Share.svg';
 import IronBike from '../../../Components/assets/svg/IronBike.svg';
@@ -26,10 +26,10 @@ const OrderBookedScreen = ({ navigation }) => {
             navigation.goBack();
           }}
         >
-          <BackArrow />
+          <BackArrow height={hp(2)} width={wp(2)} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.shareButton}>
-          <Share />
+          <Share height={hp(5)} width={wp(5)} />
         </TouchableOpacity>
       </View>
       <View style={styles.bookingConfirmView}>

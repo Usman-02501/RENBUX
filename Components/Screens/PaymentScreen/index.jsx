@@ -10,7 +10,7 @@ import {
   Platform,
 } from 'react-native';
 import { styles } from './styles';
-import { colors, hp } from '../../constant';
+import { colors, hp, wp } from '../../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import Share from '../../../Components/assets/svg/Share.svg';
 import Success from '../../../Components/assets/svg/Success.svg';
@@ -35,19 +35,13 @@ const PaymentScreen = ({ navigation }) => {
             navigation.goBack();
           }}
         >
-          <BackArrow />
+          <BackArrow height={hp(2.5)} width={wp(2.5)} />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.shareButton}
-          onPress={() => {
-            // navigation.navigate('Order');
-          }}
-        >
-          <Share />
+        <TouchableOpacity style={styles.shareButton}>
+          <Share height={hp(5)} width={wp(5)} />
         </TouchableOpacity>
       </View>
       <View style={styles.SuccessImageView}>
-        {/* <Success height={190} width={190} /> */}
         <Cancel height={190} width={190} />
       </View>
       <Text style={styles.paymentText}>Payment failed</Text>

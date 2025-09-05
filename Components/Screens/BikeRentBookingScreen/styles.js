@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import {
   borderWidth,
   colors,
@@ -8,6 +8,8 @@ import {
   radius,
   wp,
 } from '../../constant';
+const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,9 +17,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(5),
   },
   drawerView: {
-    height: hp(5.8),
-    width: wp(11.8),
-    borderRadius: radius.radius4,
+     width: width * 0.1,
+    height: width * 0.1,
+    borderRadius: (width * 0.1) / 2,
     backgroundColor: colors.gray15,
     borderWidth: borderWidth.normal,
     borderColor: colors.darkGary,
@@ -96,9 +98,9 @@ export const styles = StyleSheet.create({
     borderWidth: borderWidth.normal,
   },
   calendarView: {
-    height: hp(5.8),
-    width: wp(11.8),
-    borderRadius: radius.radius4,
+   width: width * 0.12,
+    height: width * 0.12,
+    borderRadius: (width * 0.12) / 2,
     backgroundColor: colors.gray15,
     borderWidth: borderWidth.normal,
     borderColor: colors.darkGary,

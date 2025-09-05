@@ -26,7 +26,7 @@ import Map from '../../../Components/assets/svg/Map.svg';
 import TextImage from '../../../Components/assets/svg/TextImage.svg';
 import IronBike from '../../../Components/assets/svg/IronBike.svg';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors, hp } from '../../constant';
+import { colors, hp,wp } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 
@@ -48,11 +48,11 @@ const BookDetailScreen = ({ navigation, route }) => {
                 navigation.goBack();
               }}
             >
-              <BackArrow height={13} width={13} />
+              <BackArrow height={hp(2)} width={wp(2)} />
             </TouchableOpacity>
             <Text style={styles.walletText}>Booked details</Text>
             <TouchableOpacity style={styles.backButton}>
-              <Help height={18} width={18} />
+              <Help height={25} width={25} />
             </TouchableOpacity>
           </View>
         </View>

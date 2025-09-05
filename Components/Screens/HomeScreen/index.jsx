@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
+  Dimensions,
   FlatList,
   ImageBackground,
   ScrollView,
@@ -24,6 +25,8 @@ const HomeScreen = ({ navigation }) => {
   const [searchText, setSearchText] = useState('');
   const [selectedId, setSelectedId] = useState('1');
   const insets = useSafeAreaInsets();
+  const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
 
   const DATA = [
     {
@@ -208,10 +211,10 @@ const HomeScreen = ({ navigation }) => {
             navigation.navigate('Profile');
           }}
         >
-          <Person height={40} width={40} />
+          <Person height={36} width={36} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.drawerView}>
-          <Drawer height={25} width={25} />
+         <Drawer height={height * 0.05} width={width * 0.05} />
         </TouchableOpacity>
       </View>
       <Text style={styles.helloText}>

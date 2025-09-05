@@ -15,9 +15,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   drawerView: {
-    height: hp(5.8),
-    width: wp(11.8),
-    borderRadius: radius.radius4,
+    width: width * 0.1,
+    height: width * 0.1,
+    borderRadius: (width * 0.1) / 2,
     backgroundColor: colors.darkGary,
     alignItems: 'center',
     justifyContent: 'center',
@@ -108,7 +108,7 @@ export const styles = StyleSheet.create({
   listTopView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: wp(2)
+    paddingHorizontal: wp(2),
   },
   listTextContainer: {
     paddingLeft: wp(4),

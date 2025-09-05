@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { colors, fontSize, hp, radius, wp } from '../../constant';
+const width = Dimensions.get('window').width;
 
 export const styles = StyleSheet.create({
   container: {
@@ -19,9 +20,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   backButton: {
-    width: wp(12),
-    height: hp(6),
-    borderRadius: radius.radius7,
+     width: width * 0.11,
+    height: width * 0.11,
+    borderRadius: (width * 0.11) / 2,
     backgroundColor: colors.softPink,
     justifyContent: 'center',
     alignItems: 'center',

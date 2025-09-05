@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { hp, wp, radius, colors, fontSize } from '../../constant';
+ const width = Dimensions.get('window').width;
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,9 +14,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(4),
   },
   backButton: {
-    width: wp(12),
-    height: hp(6),
-    borderRadius: radius.radius7,
+    width: width * 0.11,
+    height: width * 0.11,
+    borderRadius: (width * 0.11) / 2,
     backgroundColor: colors.veryDark,
     justifyContent: 'center',
     alignItems: 'center',
@@ -70,7 +71,7 @@ export const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'flex-end',
-    paddingBottom:hp(1)
+    paddingBottom:hp(2)
   },
   needHelpText: {
     color: colors.silver,

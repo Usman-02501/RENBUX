@@ -16,7 +16,7 @@ import CreditCard from '../../../Components/assets/svg/CreditCard.svg';
 import CreditCard1 from '../../../Components/assets/svg/CreditCard1.svg';
 import Check from '../../../Components/assets/svg/Check.svg';
 import DollarCircle from '../../../Components/assets/svg/DollarCircle.svg';
-import { colors, hp } from '../../constant';
+import { colors, hp, wp } from '../../constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ImagePicker from 'react-native-image-crop-picker';
 import LinearGradient from 'react-native-linear-gradient';
@@ -161,13 +161,8 @@ const WalletScreen = ({ navigation, route }) => {
           colors={[colors.nearBlack, colors.chineseblack]}
           style={styles.modalContainer}
         >
-          <TouchableOpacity
-            style={styles.shareButton}
-            onPress={() => {
-              // navigation.navigate('Order');
-            }}
-          >
-            <Share />
+          <TouchableOpacity style={styles.shareButton} onPress={() => {}}>
+            <Share height={hp(5)} width={wp(5)} />
           </TouchableOpacity>
           <View style={styles.SuccessImageView}>
             <Success height={190} width={190} />

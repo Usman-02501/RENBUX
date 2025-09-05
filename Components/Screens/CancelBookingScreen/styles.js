@@ -1,18 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { wp, hp, radius, colors, fontSize } from '../../constant';
+const width = Dimensions.get('window').width;
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: wp(4)
+    paddingHorizontal: wp(4),
   },
   backButton: {
-    width: wp(12),
-    height: hp(6),
+    width: width * 0.11,
+    height: width * 0.11,
+    borderRadius: (width * 0.11) / 2,
     marginTop: hp(2),
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: radius.radius7,
     backgroundColor: colors.darkGary,
   },
   cancelImageView: {
@@ -39,12 +40,12 @@ export const styles = StyleSheet.create({
   walletText: {
     fontWeight: '400',
     textAlign: 'center',
-    paddingBottom:hp(2),
+    paddingBottom: hp(2),
     color: colors.lightGray,
   },
   buttonContainer: {
     flex: 1,
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   walletButton: {
     backgroundColor: colors.deepPink,

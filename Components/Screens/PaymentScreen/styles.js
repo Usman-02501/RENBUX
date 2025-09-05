@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import { borderWidth, colors, fontSize, hp, radius, wp } from '../../constant';
+const width = Dimensions.get('window').width;
 
 export const styles = StyleSheet.create({
   container: {
@@ -12,17 +13,17 @@ export const styles = StyleSheet.create({
     marginTop:hp(2)
   },
   backButton: {
-    width: wp(12),
-    height: hp(6),
-    borderRadius: radius.radius7,
+     width: width * 0.11,
+    height: width * 0.11,
+    borderRadius: (width * 0.11) / 2,
     backgroundColor: colors.veryDark,
     justifyContent: 'center',
     alignItems: 'center',
   },
   shareButton: {
-    width: wp(12),
-    height: hp(6),
-    borderRadius: radius.radius7,
+    width: width * 0.11,
+    height: width * 0.11,
+    borderRadius: (width * 0.11) / 2,
     backgroundColor: colors.brightGray,
     justifyContent: 'center',
     alignItems: 'center',

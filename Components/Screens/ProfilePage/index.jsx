@@ -9,9 +9,8 @@ import {
 } from 'react-native';
 import BackArrow from '../../../Components/assets/svg/BackArrow.svg';
 import Pencil from '../../../Components/assets/svg/Pencil.svg';
-import ProfileLogo from '../../../Components/assets/svg/ProfileLogo.svg';
 import { styles } from './styles';
-import { colors } from '../../constant';
+import { colors,hp,wp } from '../../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import ImagePicker from 'react-native-image-crop-picker';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -69,7 +68,7 @@ const ProfilePage = ({ navigation }) => {
               navigation.goBack();
             }}
           >
-            <BackArrow />
+            <BackArrow height={hp(2)} width={wp(2)} />
           </TouchableOpacity>
           <View style={styles.profileTextView}>
             <Text style={styles.profileText}>Profile</Text>

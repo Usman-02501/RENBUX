@@ -129,13 +129,13 @@ const BikeRentBookingScreen = ({ navigation }) => {
       <StatusBar backgroundColor="transparent" barStyle="light-content" />
       <View style={styles.starDrawerView}>
         <TouchableOpacity style={styles.drawerView}>
-          <Drawer height={25} width={25} />
+          <Drawer height={18} width={18} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.drawerView} onPress={handlePress}>
           {star ? (
-            <Star height={20} width={20} />
+            <Star height={18} width={18} />
           ) : (
-            <Star2 height={20} width={20} />
+            <Star2 height={18} width={18} />
           )}
         </TouchableOpacity>
       </View>
